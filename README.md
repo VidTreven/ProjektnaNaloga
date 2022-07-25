@@ -1,1 +1,2 @@
 # ProjektnaNaloga
+Nikoli ne obupaj.
