@@ -1,3 +1,4 @@
 # ProjektnaNaloga
-Nikoli ne obupaj.
-haha
+
+## Avtor:
+Vid Treven mehi
