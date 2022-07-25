@@ -1,5 +1,4 @@
 # ProjektnaNaloga
 
-
 ## Avtor:
-Vid Treven mehi
+Vid Treven
