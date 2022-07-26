@@ -23,7 +23,6 @@ class Stanje:
     def pobrisi_opravilo(self, opravilo):
         self.aktualni_spisek.pobrisi_opravilo(opravilo)
 
-
 class Spisek:
     def __init__(self, ime):
         self.ime = ime
@@ -42,6 +41,12 @@ class Spisek:
     def stevilo_vseh(self):
         return len(self.opravila)
 
+    def v_slovar(self):
+        return {
+            "ime": self.ime,
+            "opravila": [opravilo.v_slovar() for opravilo in self.opravila],
+        }
+
 
 class Opravilo:
     def __init__(self, ime, opis, rok, opravljeno=False):
@@ -56,4 +61,11 @@ class Opravilo:
     def zamuja(self):
         rok_pretekel = self.rok and self.rok < date.today()
         return not self.opravljeno and rok_pretekel
-
+        
+    def v_slovar(self):
+        return {
+            "ime": self.ime,
+            "opis": self.opis,
+            "rok": date.isoformat(self.rok) if self.rok else None,
+            "opravljeno": self.opravljeno,
+        }
