@@ -1,14 +1,34 @@
 from datetime import date
 
-class Model:
+
+class Stanje:
     def __init__(self):
-        self.spisek = Spisek('Edini spisek')
+        self.spiski = []
+        self.aktualni_spisek = None
+
+    def dodaj_spisek(self, spisek):
+        self.spiski.append(spisek)
+        if not self.aktualni_spisek:
+            self.aktualni_spisek = spisek
+
+    def pobrisi_spisek(self, spisek):
+        self.spiski.remove(spisek)
+
+    def zamenjaj_spisek(self, spisek):
+        self.aktualni_spisek = spisek
+
+    def dodaj_opravilo(self, opravilo):
+        self.aktualni_spisek.dodaj_opravilo(opravilo)
+
+    def pobrisi_opravilo(self, opravilo):
+        self.aktualni_spisek.pobrisi_opravilo(opravilo)
+
 
 class Spisek:
     def __init__(self, ime):
         self.ime = ime
         self.opravila = []
-    
+
     def dodaj_opravilo(self, opravilo):
         self.opravila.append(opravilo)
 
@@ -16,17 +36,20 @@ class Spisek:
         stevilo = 0
         for opravilo in self.opravila:
             if opravilo.zamuja():
-                stevilo = stevilo + 1
+                stevilo += 1
         return stevilo
+
+    def stevilo_vseh(self):
+        return len(self.opravila)
 
 
 class Opravilo:
-    def __init__(self, ime, opis, rok):
+    def __init__(self, ime, opis, rok, opravljeno=False):
         self.ime = ime
         self.opis = opis
         self.rok = rok
-        self.opravljeno = False
-    
+        self.opravljeno = opravljeno
+
     def opravi(self):
         self.opravljeno = True
 
