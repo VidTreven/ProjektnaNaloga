@@ -101,7 +101,7 @@ def opravi_opravilo():
 
 def pobrisi_kategorijo():
     kategorija = izberi_kategorijo(stanje)
-    kategorija.pobrisi()
+    stanje.pobrisi_kategorijo(kategorija)
 
 
 def izpisi_trenutno_stanje():

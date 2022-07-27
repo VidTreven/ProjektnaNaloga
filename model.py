@@ -10,6 +10,9 @@ class Stanje:
         self.kategorije.append(kategorija)
         return len(self.kategorije) - 1
 
+    def pobrisi_kategorijo(self, kategorija):
+        self.kategorije.remove(kategorija)
+
     def preveri_podatke_nove_kategorije(self, nova_kategorija):
         for kategorija in self.kategorije:
             if kategorija.ime == nova_kategorija.ime:
@@ -63,9 +66,6 @@ class Kategorija:
             if opravilo.zamuja():
                 zamujena += 1
         return zamujena
-    
-    def pobrisi(self):
-        print('ne znam pobrisati kategorije')
 
     def v_slovar(self):
         return {
