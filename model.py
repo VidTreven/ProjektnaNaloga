@@ -60,6 +60,9 @@ class Kategorija:
     def dodaj_opravilo(self, opravilo):
         self.opravila.append(opravilo)
 
+    def izbrisi_opravilo(self, opravilo):
+        self.opravila.remove(opravilo)
+
     def stevilo_zamujenih(self):
         zamujena = 0
         for opravilo in self.opravila:

@@ -57,7 +57,7 @@ def izberi_kategorijo(stanje):
             (kategorija, prikaz_kategorije(kategorija))
             for kategorija in stanje.kategorije
         ]
-    )
+    ) 
 
 
 def izberi_opravilo(kategorija):
@@ -90,6 +90,14 @@ def dodaj_opravilo():
     novo_opravilo = Opravilo(opis, rok)
     kategorija.dodaj_opravilo(novo_opravilo)
 
+def potrdi_izbris(opravilo, kategorija):
+    print("Ali zelite izbrisati opravilo?")
+    return izberi_moznost(
+        [
+            (kategorija.izbrisi_opravilo(opravilo), "Ja"),
+            (print('Opravilo bo ostalo'), "Ne"),
+        ]
+    )
 
 def opravi_opravilo():
     kategorija = izberi_kategorijo(stanje)
@@ -98,6 +106,7 @@ def opravi_opravilo():
         return opravi_opravilo()
     opravilo = izberi_opravilo(kategorija)
     opravilo.opravi()
+    potrdi_izbris(opravilo, kategorija)
 
 def pobrisi_kategorijo():
     kategorija = izberi_kategorijo(stanje)
