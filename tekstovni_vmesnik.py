@@ -99,9 +99,9 @@ def opravi_opravilo():
     opravilo = izberi_opravilo(kategorija)
     opravilo.opravi()
 
-# def pobrisi_kategorijo():
-#     kategorija = izberi_kategorijo(stanje)
-#     kategorija.pobrisi()
+def pobrisi_kategorijo():
+    kategorija = izberi_kategorijo(stanje)
+    kategorija.pobrisi()
 
 
 def izpisi_trenutno_stanje():
@@ -126,7 +126,7 @@ def ponudi_moznosti():
     izbrano_dejanje = izberi_moznost(
         [
             (dodaj_kategorijo, "dodal novo kategorijo"),
-            # (pobrisi_kategorijo, "pobrisal kategorijo")
+            (pobrisi_kategorijo, "pobrisal kategorijo"),
             (dodaj_opravilo, "dodal novo opravilo"),
             (opravi_opravilo, "opravil opravilo"),
             (zakljuci_izvajanje, "odšel iz programa"),

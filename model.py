@@ -64,11 +64,8 @@ class Kategorija:
                 zamujena += 1
         return zamujena
     
-    # def pobrisi(self):
-    #     if self.ime != 'pocisceno':
-    #         self.ime = 'pocisceno'
-    #     else:
-    #         self.ime = 'kaj'
+    def pobrisi(self):
+        print('ne znam pobrisati kategorije')
 
     def v_slovar(self):
         return {
