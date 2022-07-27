@@ -1,3 +1,28 @@
 {
-    "kategorije": []
+    "kategorije": [
+        {
+            "ime": "doma",
+            "opravila": [
+                {
+                    "opis": "pocisti sobo",
+                    "rok": "2022-12-22",
+                    "opravljeno": false
+                },
+                {
+                    "opis": "klic",
+                    "rok": "2021-11-11",
+                    "opravljeno": false
+                },
+                {
+                    "opis": "heci",
+                    "rok": "2022-11-11",
+                    "opravljeno": true
+                }
+            ]
+        },
+        {
+            "ime": "gasilci",
+            "opravila": []
+        }
+    ]
 }

@@ -63,6 +63,12 @@ class Kategorija:
             if opravilo.zamuja():
                 zamujena += 1
         return zamujena
+    
+    # def pobrisi(self):
+    #     if self.ime != 'pocisceno':
+    #         self.ime = 'pocisceno'
+    #     else:
+    #         self.ime = 'kaj'
 
     def v_slovar(self):
         return {
