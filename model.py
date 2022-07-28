@@ -1,113 +1,139 @@
-from datetime import date
+# from datetime import date
 import json
 
 
 class Stanje:
-    def __init__(self, kategorije):
-        self.kategorije = kategorije
+    def __init__(self, treningi, vaje):
+        self.treningi = treningi
+        self.vaje = vaje
 
-    def dodaj_kategorijo(self, kategorija):
-        self.kategorije.append(kategorija)
-        return len(self.kategorije) - 1
+    def ustvari_trening(self, trening):
+        self.treningi.append(trening)
+        # return len(self.treningi) - 1
 
-    def pobrisi_kategorijo(self, kategorija):
-        self.kategorije.remove(kategorija)
+    def pobrisi_trening(self, trening):
+        self.treningi.remove(trening)
 
-    def preveri_podatke_nove_kategorije(self, nova_kategorija):
-        for kategorija in self.kategorije:
-            if kategorija.ime == nova_kategorija.ime:
-                return {"ime": "Kategorija s tem imenom že obstaja"}
+    def preveri_podatke_novega_trenigna(self, nov_trening):
+        for trening in self.treningi:
+            if trening.ime == nov_trening.ime:
+                return {"ime": "Trening s tem imenom že obstaja"}
 
-    def v_slovar(self):
-        return {
-            "kategorije": [kategorija.v_slovar() for kategorija in self.kategorije],
-        }
+    
+    def ustvari_vajo(self, vaja):
+        self.vaje.append(vaja)
+        # return len(self.treningi) - 1
 
-    @staticmethod
-    def iz_slovarja(slovar):
-        stanje = Stanje(
-            [
-                Kategorija.iz_slovarja(sl_kategorije)
-                for sl_kategorije in slovar["kategorije"]
-            ]
-        )
-        return stanje
+    def izbrisi_vajo(self, vaja):
+        self.vaje.remove(vaja)
 
-    def shrani_v_datoteko(self, ime_datoteke):
-        with open(ime_datoteke, "w") as dat:
-            slovar = self.v_slovar()
-            json.dump(slovar, dat, indent=4, ensure_ascii=False)
-
-    @staticmethod
-    def preberi_iz_datoteke(ime_datoteke):
-        with open(ime_datoteke) as dat:
-            slovar = json.load(dat)
-            return Stanje.iz_slovarja(slovar)
+    def preveri_podatke_nove_vaje(self, nova_vaja):
+        for vaja in self.vaje:
+            if vaja.ime == nova_vaja.ime:
+                return {"ime": "Vaja s tem imenom že obstaja"}
 
 
-class Kategorija:
-    def __init__(self, ime, opravila):
+
+
+
+    # def v_slovar(self):
+    #     return {
+    #         "treningi": [trening.v_slovar() for trening in self.treningi],
+    #         "vaje": [vaja.v_slovar() for vaja in self.vaje],
+    #     }
+
+    # @staticmethod
+    # def iz_slovarja(slovar):
+    #     stanje = Stanje(
+    #         [
+    #             Trening.iz_slovarja(sl_treningi)
+    #             for sl_treningi in slovar["treningi"]
+    #         ], 
+    #         [
+    #             Vaja.iz_slovarja(sl_vaje)
+    #             for sl_vaje in slovar["vaje"]
+    #         ]
+    #     )
+    #     return stanje
+
+    # def shrani_v_datoteko(self, ime_datoteke):
+    #     with open(ime_datoteke, "w") as dat:
+    #         slovar = self.v_slovar()
+    #         json.dump(slovar, dat, indent=4, ensure_ascii=False)
+
+    # @staticmethod
+    # def preberi_iz_datoteke(ime_datoteke):
+    #     with open(ime_datoteke) as dat:
+    #         slovar = json.load(dat)
+    #         return Stanje.iz_slovarja(slovar)
+
+
+class Trening:
+    def __init__(self, ime, vaje):
         self.ime = ime
-        self.opravila = opravila
+        self.vaje = vaje
 
-    def stevilo_neopravljenih(self):
-        neopravljena = 0
-        for opravilo in self.opravila:
-            if not opravilo.opravljeno:
-                neopravljena += 1
-        return neopravljena
+    # def stevilo_neopravljenih(self):
+    #     neopravljena = 0
+    #     for opravilo in self.opravila:
+    #         if not opravilo.opravljeno:
+    #             neopravljena += 1
+    #     return neopravljena
 
-    def dodaj_opravilo(self, opravilo):
-        self.opravila.append(opravilo)
+    def dodaj_vajo(self, vaja):
+        self.vaje.append(vaja)
 
-    def izbrisi_opravilo(self, opravilo):
-        self.opravila.remove(opravilo)
+    def odstrani_vajo(self, vaja):
+        self.vaje.remove(vaja)
 
-    def stevilo_zamujenih(self):
-        zamujena = 0
-        for opravilo in self.opravila:
-            if opravilo.zamuja():
-                zamujena += 1
-        return zamujena
+    # def stevilo_zamujenih(self):
+    #     zamujena = 0
+    #     for opravilo in self.opravila:
+    #         if opravilo.zamuja():
+    #             zamujena += 1
+    #     return zamujena
 
-    def v_slovar(self):
-        return {
-            "ime": self.ime,
-            "opravila": [opravilo.v_slovar() for opravilo in self.opravila],
-        }
+    # def v_slovar(self):
+    #     return {
+    #         "ime": self.ime,
+    #         "vaje": [vaja.v_slovar() for vaja in self.vaje],
+    #     }
 
-    @staticmethod
-    def iz_slovarja(slovar):
-        return Kategorija(
-            slovar["ime"],
-            [Opravilo.iz_slovarja(sl_opravila) for sl_opravila in slovar["opravila"]],
-        )
+    # @staticmethod
+    # def iz_slovarja(slovar):
+    #     return Trening(
+    #         slovar["ime"],
+    #         [Vaja.iz_slovarja(sl_vaje) for sl_vaje in slovar["vaje"]],
+    #    )
 
 
-class Opravilo:
-    def __init__(self, opis, rok, opravljeno=False):
+class Vaja:
+    def __init__(self, ime, opis):
+        self.ime = ime
         self.opis = opis
-        self.rok = rok
-        self.opravljeno = opravljeno
 
-    def opravi(self):
-        self.opravljeno = True
 
-    def zamuja(self):
-        rok_pretekel = self.rok and self.rok < date.today()
-        return not self.opravljeno and rok_pretekel
 
-    def v_slovar(self):
-        return {
-            "opis": self.opis,
-            "rok": self.rok.isoformat() if self.rok else None,
-            "opravljeno": self.opravljeno,
-        }
+    # def opravi(self):
+    #     self.opravljeno = True
 
-    @staticmethod
-    def iz_slovarja(slovar):
-        return Opravilo(
-            slovar["opis"],
-            date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
-            slovar["opravljeno"],
-        )
+    # def zamuja(self):
+    #     rok_pretekel = self.rok and self.rok < date.today()
+    #     return not self.opravljeno and rok_pretekel
+
+    # def v_slovar(self):
+    #     return {
+    #         "ime": self.ime,
+    #         "opis": self.opis,
+    #         #"rok": self.rok.isoformat() if self.rok else None,
+    #         #"opravljeno": self.opravljeno,
+    #     }
+
+    # @staticmethod
+    # def iz_slovarja(slovar):
+    #     return Vaja(
+    #         slovar["ime"],
+    #         slovar["opis"],
+    #         #date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
+    #         #slovar["opravljeno"],
+    #     )
