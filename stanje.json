@@ -1,18 +1,96 @@
 {
-    "kategorije": [
+    "treningi": [
         {
-            "ime": "doma",
-            "opravila": [
+            "ime": "dee",
+            "vaje": [
                 {
-                    "opis": "klic",
-                    "rok": "2021-11-11",
-                    "opravljeno": false
+                    "ime": "s",
+                    "opis": "s"
                 }
             ]
         },
         {
-            "ime": "fikus",
-            "opravila": []
+            "ime": "frr",
+            "vaje": [
+                {
+                    "ime": "s",
+                    "opis": "s"
+                },
+                {
+                    "ime": "r",
+                    "opis": "r"
+                },
+                {
+                    "ime": "h",
+                    "opis": "h"
+                }
+            ]
+        },
+        {
+            "ime": "e",
+            "vaje": []
+        },
+        {
+            "ime": "wedra",
+            "vaje": []
+        },
+        {
+            "ime": "huraa",
+            "vaje": [
+                {
+                    "ime": "s",
+                    "opis": "s"
+                },
+                {
+                    "ime": "r",
+                    "opis": "r"
+                }
+            ]
+        },
+        {
+            "ime": "koli",
+            "vaje": [
+                {
+                    "ime": "h",
+                    "opis": "h"
+                }
+            ]
+        },
+        {
+            "ime": "gt",
+            "vaje": [
+                {
+                    "ime": "s",
+                    "opis": "s"
+                },
+                {
+                    "ime": "s",
+                    "opis": "s"
+                }
+            ]
+        },
+        {
+            "ime": "drek",
+            "vaje": [
+                {
+                    "ime": "s",
+                    "opis": "s"
+                }
+            ]
+        }
+    ],
+    "vaje": [
+        {
+            "ime": "s",
+            "opis": "s"
+        },
+        {
+            "ime": "r",
+            "opis": "r"
+        },
+        {
+            "ime": "h",
+            "opis": "h"
         }
     ]
 }

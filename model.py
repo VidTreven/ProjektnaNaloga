@@ -36,36 +36,36 @@ class Stanje:
 
 
 
-    # def v_slovar(self):
-    #     return {
-    #         "treningi": [trening.v_slovar() for trening in self.treningi],
-    #         "vaje": [vaja.v_slovar() for vaja in self.vaje],
-    #     }
+    def v_slovar(self):
+        return {
+            "treningi": [trening.v_slovar() for trening in self.treningi],
+            "vaje": [vaja.v_slovar() for vaja in self.vaje],
+        }
 
-    # @staticmethod
-    # def iz_slovarja(slovar):
-    #     stanje = Stanje(
-    #         [
-    #             Trening.iz_slovarja(sl_treningi)
-    #             for sl_treningi in slovar["treningi"]
-    #         ], 
-    #         [
-    #             Vaja.iz_slovarja(sl_vaje)
-    #             for sl_vaje in slovar["vaje"]
-    #         ]
-    #     )
-    #     return stanje
+    @staticmethod
+    def iz_slovarja(slovar):
+        stanje = Stanje(
+            [
+                Trening.iz_slovarja(sl_treningi)
+                for sl_treningi in slovar["treningi"]
+            ], 
+            [
+                Vaja.iz_slovarja(sl_vaje)
+                for sl_vaje in slovar["vaje"]
+            ]
+        )
+        return stanje
 
-    # def shrani_v_datoteko(self, ime_datoteke):
-    #     with open(ime_datoteke, "w") as dat:
-    #         slovar = self.v_slovar()
-    #         json.dump(slovar, dat, indent=4, ensure_ascii=False)
+    def shrani_v_datoteko(self, ime_datoteke):
+        with open(ime_datoteke, "w") as dat:
+            slovar = self.v_slovar()
+            json.dump(slovar, dat, indent=4, ensure_ascii=False)
 
-    # @staticmethod
-    # def preberi_iz_datoteke(ime_datoteke):
-    #     with open(ime_datoteke) as dat:
-    #         slovar = json.load(dat)
-    #         return Stanje.iz_slovarja(slovar)
+    @staticmethod
+    def preberi_iz_datoteke(ime_datoteke):
+        with open(ime_datoteke) as dat:
+            slovar = json.load(dat)
+            return Stanje.iz_slovarja(slovar)
 
 
 class Trening:
@@ -93,18 +93,18 @@ class Trening:
     #             zamujena += 1
     #     return zamujena
 
-    # def v_slovar(self):
-    #     return {
-    #         "ime": self.ime,
-    #         "vaje": [vaja.v_slovar() for vaja in self.vaje],
-    #     }
+    def v_slovar(self):
+        return {
+            "ime": self.ime,
+            "vaje": [vaja.v_slovar() for vaja in self.vaje],
+        }
 
-    # @staticmethod
-    # def iz_slovarja(slovar):
-    #     return Trening(
-    #         slovar["ime"],
-    #         [Vaja.iz_slovarja(sl_vaje) for sl_vaje in slovar["vaje"]],
-    #    )
+    @staticmethod
+    def iz_slovarja(slovar):
+        return Trening(
+            slovar["ime"],
+            [Vaja.iz_slovarja(sl_vaje) for sl_vaje in slovar["vaje"]],
+       )
 
 
 class Vaja:
@@ -121,19 +121,19 @@ class Vaja:
     #     rok_pretekel = self.rok and self.rok < date.today()
     #     return not self.opravljeno and rok_pretekel
 
-    # def v_slovar(self):
-    #     return {
-    #         "ime": self.ime,
-    #         "opis": self.opis,
-    #         #"rok": self.rok.isoformat() if self.rok else None,
-    #         #"opravljeno": self.opravljeno,
-    #     }
+    def v_slovar(self):
+        return {
+            "ime": self.ime,
+            "opis": self.opis,
+            #"rok": self.rok.isoformat() if self.rok else None,
+            #"opravljeno": self.opravljeno,
+        }
 
-    # @staticmethod
-    # def iz_slovarja(slovar):
-    #     return Vaja(
-    #         slovar["ime"],
-    #         slovar["opis"],
-    #         #date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
-    #         #slovar["opravljeno"],
-    #     )
+    @staticmethod
+    def iz_slovarja(slovar):
+        return Vaja(
+            slovar["ime"],
+            slovar["opis"],
+            #date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
+            #slovar["opravljeno"],
+        )
