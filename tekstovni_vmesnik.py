@@ -32,7 +32,7 @@ def izberi_moznost(moznosti):
 
 
 def prikaz_treninga(trening):
-    return f"{trening.ime.upper()}"
+    return f"{trening.ime.upper()} /n {trening.vaje}"
     # zamujena = kategorija.stevilo_zamujenih()
     # neopravljena = kategorija.stevilo_neopravljenih()
     # if zamujena:
@@ -58,7 +58,7 @@ def izberi_trening(stanje):
     print("Izberite trening:")
     return izberi_moznost(
         [
-            (trening, prikaz_treninga(trening))
+            (trening, trening.ime)
             for trening in stanje.treningi
         ]
     ) 
@@ -76,11 +76,14 @@ def zacetni_pozdrav():
 
 
 def ustvari_trening():
-    print("Vnesite podatke novega treninga.")
-    ime = input("Ime> ")
-    vaje = izberi_vajo()
-    nov_trening = Trening(ime, vaje)
-    stanje.ustvari_trening(nov_trening)
+    if len(stanje.vaje) == 0:
+        print("Zal nimate nobene vaje, zato ne morete ustvariti treninga. \nNajprej ustvarite nekaj vaj, nato boste iz njih lahko sestavili trening.")
+    else:    
+        print("Vnesite podatke novega treninga.")
+        ime = input("Ime> ")
+        vaje = izberi_vajo()
+        nov_trening = Trening(ime, vaje)
+        stanje.ustvari_trening(nov_trening)
 
 
 def ustvari_vajo():
@@ -96,14 +99,23 @@ def ustvari_vajo():
     nova_vaja = Vaja(ime, opis)
     stanje.ustvari_vajo(nova_vaja)
 
-def potrdi_izbris(opravilo, kategorija):
-    print("Ali zelite izbrisati opravilo?")
-    return izberi_moznost(
-        [
-            (kategorija.izbrisi_opravilo(opravilo), "Ja"),
-            (print('Opravilo bo ostalo'), "Ne"),
-        ]
-    )
+def izbrisi_vajo():
+    vaja = izberi_vajo()
+    stanje.izbrisi_vajo(vaja)
+
+def preglej_vajo():
+    vaja = izberi_vajo()
+    prikaz_vaje(vaja)
+
+
+# def potrdi_izbris(opravilo, kategorija):
+#     print("Ali zelite izbrisati opravilo?")
+#     return izberi_moznost(
+#         [
+#             (kategorija.izbrisi_opravilo(opravilo), "Ja"),
+#             (print('Opravilo bo ostalo'), "Ne"),
+#         ]
+#     )
 
 # def opravi_opravilo():
 #     kategorija = izberi_kategorijo(stanje)
@@ -126,13 +138,43 @@ def izpisi_trenutno_stanje():
         )
     for trening in stanje.treningi:
         print(f"{prikaz_treninga(trening)}")
+    # if not stanje.vaje:
+    #     print(
+    #         "Trenutno nimate še nobene vaje."
+    #     )
+    # for vaja in stanje.vaje:
+    #     print(f"{vaja.ime}")
+
+def hvala_vseeno():
+    print("OK")
+
+def preglej_vaje():
     if not stanje.vaje:
         print(
             "Trenutno nimate še nobene vaje."
         )
-    for vaja in stanje.vaje:
-        print(f"{vaja.ime}")
+        print("Bi radi ustvarili vajo?")
+        izbrano_dejanje = izberi_moznost(
+            [
+                (ustvari_vajo, "Ja"),
+                (hvala_vseeno, "Ne"),
+            ]
+        )
+        izbrano_dejanje()
+    else:
+        izbrano_dejanje = izberi_moznost(
+            [
+                (ustvari_vajo, "ustvari vajo"),
+                (preglej_vajo, "preglej vajo"),
+                (izbrisi_vajo, "izbrisi vajo"),
+            ]
+        )
+        izbrano_dejanje()
 
+def zacni_trening():
+    trening = izberi_trening(Stanje)
+    prikaz_treninga(trening)
+    
 
 def zakljuci_izvajanje():
     stanje.shrani_v_datoteko(IME_DATOTEKE)
@@ -146,7 +188,8 @@ def ponudi_moznosti():
         [
             (ustvari_trening, "ustvaril trening"),
             (pobrisi_trening, "pobrisal trening"),
-            (ustvari_vajo, "ustvaril novo vajo"),
+            (zacni_trening, "treniral"),
+            (preglej_vaje, "pregledal vaje"),
             (zakljuci_izvajanje, "odšel iz programa"),
         ]
     )
