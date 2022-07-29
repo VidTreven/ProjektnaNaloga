@@ -1,5 +1,5 @@
 # from datetime import date
-from model import Stanje, Trening, Vaja
+from model import Stanje, Trening, Vaja, Vaja_ponovitev
 
 stanje_obj = Stanje([],[])
 
@@ -75,16 +75,20 @@ def izberi_vajo_v_stanju():
 def izberi_vajo_v_treningu(trening):
     print("Izberite vajo: ")
     return izberi_moznost(
-        [(vaja, vaja.ime) for vaja in trening.vaje]
+        [(vaja_ponovitev, vaja_ponovitev.ime) for vaja_ponovitev in trening.vaje_ponovitev]
     )    
 
-def dodaj_vajo():
+def dodaj_vajo_ponovitev(trening):
     print("Dodajte vajo:")
-    return izberi_moznost(
+    vaja = izberi_moznost(
         [
             (vaja, vaja.ime) for vaja in stanje.vaje
         ]
     )
+    ponovitev = input("Vnesite stevilo ponovitev> ")
+    vaja_ponovitev = Vaja_ponovitev(vaja.ime, vaja.opis, ponovitev)
+    trening.dodaj_vajo_ponovitev(vaja_ponovitev)
+
 
 def zacetni_pozdrav():
     print("Pozdravljeni v programu za telesno vadbo!")
@@ -101,8 +105,10 @@ def ustvari_trening():
         dokoncaj_trening(nov_trening)
 
 def dokoncaj_trening(trening):
-        vaja = dodaj_vajo()
-        trening.dodaj_vajo(vaja)
+    dodaj_vajo_ponovitev(trening)
+    
+        # stevilka = input("Stevilo ponovitev> ")
+        # stevilo = int(stevilka)
 
 def ustvari_vajo():
     # kategorija = izberi_trening(stanje)

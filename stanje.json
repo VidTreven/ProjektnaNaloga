@@ -1,96 +1,43 @@
 {
     "treningi": [
         {
-            "ime": "dee",
-            "vaje": [
+            "ime": "hn",
+            "vaje_ponovitev": [
                 {
-                    "ime": "s",
-                    "opis": "s"
-                }
-            ]
-        },
-        {
-            "ime": "frr",
-            "vaje": [
-                {
-                    "ime": "s",
-                    "opis": "s"
+                    "ime": "hukilo",
+                    "opis": "rtyjrtjty",
+                    "ponovitve": "23"
                 },
                 {
-                    "ime": "r",
-                    "opis": "r"
-                },
-                {
-                    "ime": "h",
-                    "opis": "h"
+                    "ime": "tgthj",
+                    "opis": "gttg",
+                    "ponovitve": "34"
                 }
             ]
         },
         {
-            "ime": "e",
-            "vaje": []
-        },
-        {
-            "ime": "wedra",
-            "vaje": []
-        },
-        {
-            "ime": "huraa",
-            "vaje": [
+            "ime": "test",
+            "vaje_ponovitev": [
                 {
-                    "ime": "s",
-                    "opis": "s"
-                },
-                {
-                    "ime": "r",
-                    "opis": "r"
-                }
-            ]
-        },
-        {
-            "ime": "koli",
-            "vaje": [
-                {
-                    "ime": "h",
-                    "opis": "h"
-                }
-            ]
-        },
-        {
-            "ime": "gt",
-            "vaje": [
-                {
-                    "ime": "s",
-                    "opis": "s"
-                },
-                {
-                    "ime": "s",
-                    "opis": "s"
-                }
-            ]
-        },
-        {
-            "ime": "drek",
-            "vaje": [
-                {
-                    "ime": "s",
-                    "opis": "s"
+                    "ime": "d",
+                    "opis": "d",
+                    "ponovitve": "45"
                 }
             ]
         }
     ],
     "vaje": [
         {
-            "ime": "s",
-            "opis": "s"
+            "ime": "hukilo",
+            "opis": "rtyjrtjty"
         },
         {
-            "ime": "r",
-            "opis": "r"
+            "ime": "tgthj",
+            "opis": "gttg"
         },
         {
-            "ime": "h",
-            "opis": "h"
+            "ime": "d",
+            "opis": "d"
         }
     ]
 }

@@ -69,64 +69,60 @@ class Stanje:
 
 
 class Trening:
-    def __init__(self, ime, vaje):
+    def __init__(self, ime, vaje_ponovitev):
         self.ime = ime
-        self.vaje = vaje
+        self.vaje_ponovitev = vaje_ponovitev
 
-    # def stevilo_neopravljenih(self):
-    #     neopravljena = 0
-    #     for opravilo in self.opravila:
-    #         if not opravilo.opravljeno:
-    #             neopravljena += 1
-    #     return neopravljena
+    def dodaj_vajo_ponovitev(self, vaja_ponovitev):
+        self.vaje_ponovitev.append(vaja_ponovitev)
 
-    def dodaj_vajo(self, vaja):
-        self.vaje.append(vaja)
-
-    def odstrani_vajo(self, vaja):
-        self.vaje.remove(vaja)
-
-    # def stevilo_zamujenih(self):
-    #     zamujena = 0
-    #     for opravilo in self.opravila:
-    #         if opravilo.zamuja():
-    #             zamujena += 1
-    #     return zamujena
+    def odstrani_vajo_ponovitev(self, vaja_ponovitev):
+        self.vaje_ponovitev.remove(vaja_ponovitev)
 
     def v_slovar(self):
         return {
             "ime": self.ime,
-            "vaje": [vaja.v_slovar() for vaja in self.vaje],
+            "vaje_ponovitev": [vaja_ponovitev.v_slovar() for vaja_ponovitev in self.vaje_ponovitev],
         }
 
     @staticmethod
     def iz_slovarja(slovar):
         return Trening(
             slovar["ime"],
-            [Vaja.iz_slovarja(sl_vaje) for sl_vaje in slovar["vaje"]],
+            [Vaja_ponovitev.iz_slovarja(sl_vaje_ponovitev) for sl_vaje_ponovitev in slovar["vaje_ponovitev"]],
        )
 
+
+class Vaja_ponovitev:
+    def __init__(self, ime, opis, ponovitve):
+        self.ime = ime
+        self.opis = opis
+        self.ponovitve = ponovitve
+        
+    def v_slovar(self):
+        return {
+            "ime": self.ime,
+            "opis": self.opis,
+            "ponovitve": self.ponovitve
+        }
+
+    @staticmethod
+    def iz_slovarja(slovar):
+        return Vaja_ponovitev(
+            slovar["ime"],
+            slovar["opis"],
+            slovar["ponovitve"],
+        )
 
 class Vaja:
     def __init__(self, ime, opis):
         self.ime = ime
         self.opis = opis
 
-
-
-    # def opravi(self):
-    #     self.opravljeno = True
-
-    # def zamuja(self):
-    #     rok_pretekel = self.rok and self.rok < date.today()
-    #     return not self.opravljeno and rok_pretekel
-
     def v_slovar(self):
         return {
             "ime": self.ime,
             "opis": self.opis,
-            #"rok": self.rok.isoformat() if self.rok else None,
-            #"opravljeno": self.opravljeno,
         }
 
     @staticmethod
@@ -134,6 +130,4 @@ class Vaja:
         return Vaja(
             slovar["ime"],
             slovar["opis"],
-            #date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
-            #slovar["opravljeno"],
         )
