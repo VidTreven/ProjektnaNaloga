@@ -1,43 +1,57 @@
 {
     "treningi": [
         {
-            "ime": "hn",
+            "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
-                    "ime": "hukilo",
-                    "opis": "rtyjrtjty",
-                    "ponovitve": "23"
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "40"
                 },
                 {
-                    "ime": "tgthj",
-                    "opis": "gttg",
-                    "ponovitve": "34"
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "2"
                 }
             ]
         },
         {
-            "ime": "test",
+            "ime": "Ares",
             "vaje_ponovitev": [
                 {
-                    "ime": "d",
-                    "opis": "d",
-                    "ponovitve": "45"
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "20"
+                },
+                {
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "3"
+                },
+                {
+                    "ime": "Trebusnjak",
+                    "opis": "Obicajni trebusnjak",
+                    "ponovitve": "30"
                 }
             ]
         }
     ],
     "vaje": [
         {
-            "ime": "hukilo",
-            "opis": "rtyjrtjty"
+            "ime": "Skleca",
+            "opis": "Obicajna skleca"
         },
         {
-            "ime": "tgthj",
-            "opis": "gttg"
+            "ime": "Vojaski poskok",
+            "opis": "Socasno skacemo in ploskamo"
         },
         {
-            "ime": "d",
-            "opis": "d"
+            "ime": "Tek",
+            "opis": "Pogovorni tempo"
+        },
+        {
+            "ime": "Trebusnjak",
+            "opis": "Obicajni trebusnjak"
         }
     ]
 }

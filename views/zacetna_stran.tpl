@@ -1,22 +1,13 @@
-% rebase('osnova.tpl')
-<!-- Main container -->
-<nav class="level">
-    <div class="level-left">
-        <div class="buttons has-addons field is-horizontal">
-            % for id_kategorije, kategorija in enumerate(kategorije):
-            <a href="/kategorija/{{id_kategorije}}/" class="button" name="id_kategorije" value="{{id_kategorije}}">
-                {{kategorija.ime}}
-                <span class="tag is-rounded">{{kategorija.stevilo_neopravljenih()}}</span>
-            </a>
-            % end
-        </div>
+<h1>Dobrodosel v tvojem osebnem trening centru!</h1>
 
-    </div>
+Tvoji treningi:
+<ul>
+% for trening in treningi:
+    <li><a href="trening/{{treningi.index(trening)}}/">{{trening.ime}}</a></li>
+% end
+</ul>
 
-    <div class="level-right">
-            <div class="level-item">
-                <a class="button is-info" href="/dodaj-kategorijo/">dodaj kategorijo</a>
-            </div>
-        </form>
-    </div>
-</nav>
+<button><a href="nov_trening/">dodaj trening</a></button> 
+
+<button><a href="vaje/">Vaje</a></button>
+
