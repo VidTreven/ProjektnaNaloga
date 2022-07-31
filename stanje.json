@@ -4,11 +4,6 @@
             "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "40"
-                },
-                {
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "2"
@@ -77,6 +72,26 @@
         {
             "ime": "kokolo",
             "vaje_ponovitev": []
+        },
+        {
+            "ime": "jhgjhfi",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                },
+                {
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "4"
+                },
+                {
+                    "ime": "Trebusnjak",
+                    "opis": "Obicajni trebusnjak",
+                    "ponovitve": "5"
+                }
+            ]
         }
     ],
     "vaje": [
@@ -99,6 +114,10 @@
         {
             "ime": "trek",
             "opis": "freth"
+        },
+        {
+            "ime": "dede",
+            "opis": "hgvjfu"
         }
     ]
 }

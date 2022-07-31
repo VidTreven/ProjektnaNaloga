@@ -116,6 +116,13 @@ def vaje():
         vaje = stanje.vaje,
         )
 
+@bottle.get("/vaje/uredi/")
+def vaje_uredi():
+    return bottle.template(
+        "vaje_uredi.tpl",
+        vaje = stanje.vaje,
+        )
+
 
 
 bottle.run(debug=True, reloader=True)
