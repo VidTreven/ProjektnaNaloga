@@ -8,4 +8,4 @@
 </ul>
 
 <button><a href="">Zacni s treningom!</a></button>
-<button><a href="uredi/">Dodelaj trening.</a></button>
+<button><a href="uredi/">Uredi trening.</a></button>

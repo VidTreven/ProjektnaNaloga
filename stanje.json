@@ -12,6 +12,11 @@
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "2"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "45"
                 }
             ]
         },
@@ -34,6 +39,44 @@
                     "ponovitve": "30"
                 }
             ]
+        },
+        {
+            "ime": "miha",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "huhu",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "45"
+                },
+                {
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "34"
+                }
+            ]
+        },
+        {
+            "ime": "kiklop",
+            "vaje_ponovitev": [
+                {
+                    "ime": "trek",
+                    "opis": "freth",
+                    "ponovitve": "43"
+                },
+                {
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "56"
+                }
+            ]
+        },
+        {
+            "ime": "kokolo",
+            "vaje_ponovitev": []
         }
     ],
     "vaje": [
@@ -52,6 +95,10 @@
         {
             "ime": "Trebusnjak",
             "opis": "Obicajni trebusnjak"
+        },
+        {
+            "ime": "trek",
+            "opis": "freth"
         }
     ]
 }

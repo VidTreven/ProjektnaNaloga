@@ -1,5 +1,9 @@
 <h2>{{trening.ime}}</h2>
 
+<form method="POST" action="izbrisi/">
+    <button>Izbrisi trening</button>
+</form>
+
 <ul>
   % for vaja in vaje_treninga:
     <li>
