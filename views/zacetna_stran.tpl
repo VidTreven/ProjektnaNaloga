@@ -1,6 +1,8 @@
+% rebase("osnova.tpl")
+
 <h1>Dobrodosel v tvojem osebnem trening centru!</h1>
 
-Tvoji treningi:
+<h4>Tvoji treningi:</h4>
 <ul>
 % for trening in treningi:
     <li><a href="trening/{{treningi.index(trening)}}/">{{trening.ime}}</a></li>
