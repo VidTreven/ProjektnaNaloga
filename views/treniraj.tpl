@@ -5,7 +5,7 @@
 
 <b>POZOR!</b> 
 <br />
-Pred vsakim treningom se je dobro ogreti, saj s tem zmanjsamo stevilo poskodb.
+Pred vsakim treningom se je potrebno dobro ogreti, saj s tem zmanjsamo stevilo poskodb.
 
 % if st_vaj >= 2:
     <a href="0/" role="button">Start</a>
