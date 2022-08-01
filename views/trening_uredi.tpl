@@ -22,7 +22,7 @@
   % for vaja in vaje:
     <li> 
             {{vaja.ime}}
-            <button> <a href="dodaj/{{vaje.index(vaja)}}/"> dodaj </a> </button>
+            <a href="dodaj/{{vaje.index(vaja)}}/" role="button">Dodaj</a>
     </li>
   % end
 </ul>

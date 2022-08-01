@@ -9,7 +9,11 @@
 % end
 </ul>
 
-<button><a href="nov_trening/">dodaj trening</a></button> 
+ 
 
-<button><a href="vaje/">Vaje</a></button>
+<a href="nov_trening/" role="button">Dodaj trening</a>
+
+<a href="vaje/" role="button">Vaje</a>
+
+
 

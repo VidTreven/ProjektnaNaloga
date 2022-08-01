@@ -10,6 +10,5 @@ Ponovitve: {{vaja_trenutna.ponovitve}}
 
 <hr />
 
-<button>
-<a href="/trening/{{id_treninga}}/">koncaj s treningom</a>
-</button>
+
+<a href="/trening/{{id_treninga}}/" role="button">koncaj s treningom</a>

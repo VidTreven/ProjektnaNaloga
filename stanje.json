@@ -4,6 +4,11 @@
             "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
+                    "ime": "kolo",
+                    "opis": "s kolesom do vrha",
+                    "ponovitve": "1"
+                },
+                {
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "2"
@@ -91,7 +96,13 @@
         },
         {
             "ime": "kokolo",
-            "vaje_ponovitev": []
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                }
+            ]
         },
         {
             "ime": "jhgjhfi",
@@ -209,6 +220,10 @@
         {
             "ime": "gregrger",
             "opis": "errrere"
+        },
+        {
+            "ime": "kolo",
+            "opis": "s kolesom do vrha"
         }
     ]
 }

@@ -11,7 +11,10 @@ Naslednja vaja: {{vaja_naslednja.ime}}, {{vaja_naslednja.ponovitve}} krat
 <hr />
 
 % if id_naslednje_vaje + 1 == st_vaj:
-    <a href="/trening/{{id_treninga}}/treniraj_zadnjo/">naprej</a>
+    <a href="/trening/{{id_treninga}}/treniraj_zadnjo/" role="button">naprej</a>
 %  else:
-    <a href="/trening/{{id_treninga}}/treniraj/{{id_naslednje_vaje}}/">naprej</a>
+    <a href="/trening/{{id_treninga}}/treniraj/{{id_naslednje_vaje}}/" role="button">naprej</a>
 % end
+
+
+    

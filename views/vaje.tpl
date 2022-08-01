@@ -9,6 +9,5 @@
 % end
 </ul>
 
-<button>
-<a href="uredi/">Uredi</a>
-</button>
+
+<a href="uredi/" role="button">Uredi</a>
