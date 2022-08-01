@@ -19,11 +19,34 @@ def zacetna_stran():
 def url_treninga_uredi(id_treninga):
     return f"/trening/{id_treninga}/uredi/"
 
+def url_treninga_uredi_novo(id_treninga):
+    return f"/trening/{id_treninga}/uredi_novo/"
+
 def url_vaje():
     return f"/vaje/"
 
 def url_zacetna_stran():
     return f"/"
+
+@bottle.get("/trening/<id_treninga>/uredi_novo/")
+def trening_uredi(id_treninga):
+    trening = stanje.treningi[int(id_treninga)]
+    return bottle.template(
+        "trening_uredi_novo.tpl",
+        trening = trening,
+        vaje_treninga = trening.vaje_ponovitev,
+        vaje = stanje.vaje
+        )
+
+@bottle.post("/trening/<id_treninga>/uredi_novo/dodaj/<id_vaje>/")
+def trening_uredi_dodaj(id_treninga, id_vaje):
+    trening = stanje.treningi[int(id_treninga)]
+    vaja = stanje.vaje[int(id_vaje)]
+    ponovitve = bottle.request.forms["ponovitve"]
+    vaja_ponovitev = Vaja_ponovitev(vaja.ime, vaja.opis, ponovitve)
+    trening.dodaj_vajo_ponovitev(vaja_ponovitev)
+    stanje.shrani_v_datoteko(IME_DATOTEKE)
+    bottle.redirect(url_treninga_uredi(id_treninga))
 
 @bottle.get("/trening/<indeks>/")
 def trening(indeks):
@@ -59,13 +82,25 @@ def trening_uredi_odstrani(id_treninga, id_vaje):
     trening.odstrani_vajo_ponovitev(vaja)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
-@bottle.post("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/")
+@bottle.get("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/")
 def trening_uredi_dodaj(id_treninga, id_vaje):
+    trening = stanje.treningi[int(id_treninga)]
+    nasa_vaja = stanje.vaje[int(id_vaje)]
+    return bottle.template(
+        "trening_uredi_dodaj.tpl",
+        trening = trening,
+        vaje_treninga = trening.vaje_ponovitev,
+        nasa_vaja = nasa_vaja,
+        ime_nase_vaje = nasa_vaja.ime,
+        )
+
+@bottle.post("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/<id_naslednje_vaje>/")
+def trening_uredi_dodaj_pred(id_treninga, id_vaje, id_naslednje_vaje):
     trening = stanje.treningi[int(id_treninga)]
     vaja = stanje.vaje[int(id_vaje)]
     ponovitve = bottle.request.forms["ponovitve"]
     vaja_ponovitev = Vaja_ponovitev(vaja.ime, vaja.opis, ponovitve)
-    trening.dodaj_vajo_ponovitev(vaja_ponovitev)
+    trening.vrini_vajo_ponovitev(int(id_naslednje_vaje), vaja_ponovitev)
     stanje.shrani_v_datoteko(IME_DATOTEKE)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
@@ -86,7 +121,7 @@ def trening_dodaj():
     stanje.shrani_v_datoteko(IME_DATOTEKE)
     treningi = stanje.treningi
     id_treninga = treningi.index(trening)
-    bottle.redirect(url_treninga_uredi(id_treninga))
+    bottle.redirect(url_treninga_uredi_novo(id_treninga))
 
 @bottle.get("/vaje/<indeks>/")
 def vaje_indeks(indeks):

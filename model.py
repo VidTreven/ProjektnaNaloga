@@ -75,6 +75,9 @@ class Trening:
     def dodaj_vajo_ponovitev(self, vaja_ponovitev):
         self.vaje_ponovitev.append(vaja_ponovitev)
 
+    def vrini_vajo_ponovitev(self, naslednik, vaja_ponovitev,):
+        self.vaje_ponovitev.insert(naslednik, vaja_ponovitev)
+
     def odstrani_vajo_ponovitev(self, vaja_ponovitev):
         self.vaje_ponovitev.remove(vaja_ponovitev)
 

@@ -19,11 +19,6 @@
             "ime": "Ares",
             "vaje_ponovitev": [
                 {
-                    "ime": "Vojaski poskok",
-                    "opis": "Socasno skacemo in ploskamo",
-                    "ponovitve": "20"
-                },
-                {
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "3"
@@ -32,6 +27,11 @@
                     "ime": "Trebusnjak",
                     "opis": "Obicajni trebusnjak",
                     "ponovitve": "30"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "21"
                 }
             ]
         },
@@ -43,14 +43,29 @@
             "ime": "huhu",
             "vaje_ponovitev": [
                 {
+                    "ime": "trek",
+                    "opis": "freth",
+                    "ponovitve": "12"
+                },
+                {
                     "ime": "Skleca",
                     "opis": "Obicajna skleca",
                     "ponovitve": "45"
                 },
                 {
+                    "ime": "Trebusnjak",
+                    "opis": "Obicajni trebusnjak",
+                    "ponovitve": "43"
+                },
+                {
                     "ime": "Vojaski poskok",
                     "opis": "Socasno skacemo in ploskamo",
                     "ponovitve": "34"
+                },
+                {
+                    "ime": "dede",
+                    "opis": "hgvjfu",
+                    "ponovitve": "45"
                 }
             ]
         },
@@ -92,6 +107,55 @@
                     "ponovitve": "5"
                 }
             ]
+        },
+        {
+            "ime": "hari kiri",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "huraa",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                }
+            ]
+        },
+        {
+            "ime": "huraa",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "hulahup",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "koko",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "koko",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "deresem",
+            "vaje_ponovitev": []
+        },
+        {
+            "ime": "malibio",
+            "vaje_ponovitev": [
+                {
+                    "ime": "trek",
+                    "opis": "freth",
+                    "ponovitve": "10"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                }
+            ]
         }
     ],
     "vaje": [
@@ -118,6 +182,10 @@
         {
             "ime": "dede",
             "opis": "hgvjfu"
+        },
+        {
+            "ime": "gregrger",
+            "opis": "errrere"
         }
     ]
 }

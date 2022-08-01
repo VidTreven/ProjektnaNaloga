@@ -8,4 +8,8 @@
 </ul>
 
 <button><a href="">Zacni s treningom!</a></button>
-<button><a href="uredi/">Uredi trening.</a></button>
+% if vaje_treninga == []:
+    <button><a href="uredi_novo/">Uredi trening.</a></button>
+%  else:
+    <button><a href="uredi/">Uredi trening.</a></button>
+% end
