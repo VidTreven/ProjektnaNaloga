@@ -52,7 +52,13 @@
         },
         {
             "ime": "miha",
-            "vaje_ponovitev": []
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                }
+            ]
         },
         {
             "ime": "huhu",
@@ -61,6 +67,11 @@
                     "ime": "trek",
                     "opis": "freth",
                     "ponovitve": "12"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "10"
                 },
                 {
                     "ime": "Skleca",
@@ -98,6 +109,26 @@
                     "ponovitve": "43"
                 },
                 {
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "0"
+                },
+                {
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "1"
+                },
+                {
+                    "ime": "kolo",
+                    "opis": "s kolesom do vrha",
+                    "ponovitve": "4"
+                },
+                {
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "4"
+                },
+                {
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "56"
@@ -106,6 +137,11 @@
                     "ime": "Skleca",
                     "opis": "Obicajna skleca",
                     "ponovitve": "12"
+                },
+                {
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "5"
                 }
             ]
         },
