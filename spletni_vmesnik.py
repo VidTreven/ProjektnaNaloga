@@ -38,13 +38,16 @@ def trening_uredi(id_treninga):
         vaje = stanje.vaje
         )
 
-@bottle.post("/trening/<id_treninga>/uredi_novo/dodaj/<id_vaje>/")
-def trening_uredi_dodaj(id_treninga, id_vaje):
+@bottle.post("/trening/<id_treninga>/uredi_novo/dodaj/vecer/")
+def trening_uredi_dodaj_prvo(id_treninga):
     trening = stanje.treningi[int(id_treninga)]
-    vaja = stanje.vaje[int(id_vaje)]
-    ponovitve = bottle.request.forms["ponovitve"]
-    vaja_ponovitev = Vaja_ponovitev(vaja.ime, vaja.opis, ponovitve)
-    trening.dodaj_vajo_ponovitev(vaja_ponovitev)
+    vaja = bottle.request.forms["dodana_vaja"]
+    ime_in_opis = vaja.split(',')
+    ime = ime_in_opis[0]
+    opis = ime_in_opis[1]
+    ponovitve = bottle.request.forms["st_ponovitev"]
+    vaja_ponovitev = Vaja_ponovitev(ime, opis, ponovitve)
+    trening.dodaj_vajo_ponovitev( vaja_ponovitev)
     stanje.shrani_v_datoteko(IME_DATOTEKE)
     bottle.redirect(url_treninga_uredi(id_treninga))
 

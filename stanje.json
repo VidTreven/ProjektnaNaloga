@@ -242,7 +242,18 @@
         },
         {
             "ime": "koko",
-            "vaje_ponovitev": []
+            "vaje_ponovitev": [
+                {
+                    "ime": "Vojaski poskok",
+                    "opis": "Socasno skacemo in ploskamo",
+                    "ponovitve": "2"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                }
+            ]
         },
         {
             "ime": "koko",
@@ -285,7 +296,13 @@
         },
         {
             "ime": "test2",
-            "vaje_ponovitev": []
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "10"
+                }
+            ]
         }
     ],
     "vaje": [
@@ -324,6 +341,10 @@
         {
             "ime": "dererereree",
             "opis": "aaaaa"
+        },
+        {
+            "ime": "vinci",
+            "opis": "mens sana in corpore sano"
         }
     ]
 }

@@ -5,14 +5,14 @@
 
 <ul>
   % for vaja_treninga in vaje_treninga:
-    <form method="POST" action="dodaj/vecer/{{vaje_treninga.index(vaja_treninga)}}/prosim/" role="button" class="secondary outline">
-      <select name="dodana_vaja">
+    <form method="POST" action="dodaj/vecer/{{vaje_treninga.index(vaja_treninga)}}/prosim/" role="button" class="secondary outline" width="40" height="20">
+      <select name="dodana_vaja" required>
         <option value="" disabled selected>Izberi vajo</option>
         % for vaja in vaje:
             <option value="{{vaja.ime}},{{vaja.opis}}">{{vaja.ime}}</option>
         % end
       </select>
-      <select name="st_ponovitev">
+      <select name="st_ponovitev" required>
         <option value="" disabled selected>stevilo ponovitev</option>
         % for stevilka in range(0,101):
             <option value={{stevilka}}>{{stevilka}}</option>

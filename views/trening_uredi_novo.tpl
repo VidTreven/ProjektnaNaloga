@@ -2,19 +2,26 @@
 
 <h2>{{trening.ime}}</h2>
 
+
+  <form method="POST" action="dodaj/vecer/" role="button" class="secondary outline">
+      <select name="dodana_vaja">
+        <option value="" disabled selected>Izberi vajo</option>
+        % for vaja in vaje:
+            <option value="{{vaja.ime}},{{vaja.opis}}">{{vaja.ime}}</option>
+        % end
+      </select>
+      <select name="st_ponovitev">
+        <option value="" disabled selected>stevilo ponovitev</option>
+        % for stevilka in range(0,101):
+            <option value={{stevilka}}>{{stevilka}}</option>
+        % end
+      </select>
+      <input type="submit" value="Dodaj vajo">
+  </form>
+
+
 <form method="POST" action="izbrisi/">
     <button>Izbrisi trening</button>
 </form>
 
 
-<h3>Dodaj vajo:</h3>
-<ul>
-  % for vaja in vaje:
-    <li> 
-        <form method="POST" action="dodaj/{{vaje.index(vaja)}}/" role="button" class="secondary outline">
-            <b>{{vaja.ime}}</b> <input type="text" name="ponovitve" placeholder="st. ponovitev">
-            <button>dodaj</button>
-        </form>
-    </li>
-  % end
-</ul>
