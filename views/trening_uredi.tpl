@@ -4,26 +4,45 @@
 
 
 <ul>
-  % for vaja in vaje_treninga:
-    <li>
-        <b>{{vaja.ime}}</b>, {{vaja.ponovitve}} krat
-        <form method="POST" action="odstrani/{{vaje_treninga.index(vaja)}}/" role="button">
-            Odstrani
-        </form>
-    </li>
-  % end
-</ul>
+  % for vaja_treninga in vaje_treninga:
+    <form method="POST" action="dodaj/vecer/{{vaje_treninga.index(vaja_treninga)}}/prosim/" role="button" class="secondary outline">
+      <select name="dodana_vaja">
+        <option value="" disabled selected>Izberi vajo</option>
+        % for vaja in vaje:
+            <option value="{{vaja.ime}},{{vaja.opis}}">{{vaja.ime}}</option>
+        % end
+      </select>
+      <select name="st_ponovitev">
+        <option value="" disabled selected>stevilo ponovitev</option>
+        % for stevilka in range(0,101):
+            <option value={{stevilka}}>{{stevilka}}</option>
+        % end
+      </select>
+      <input type="submit" value="Dodaj vajo">
+    </form>
+        <li>
+            <b>{{vaja_treninga.ime}}</b>, {{vaja_treninga.ponovitve}} krat
+            <form method="POST" action="odstrani/{{vaje_treninga.index(vaja_treninga)}}/" role="button">
+                Odstrani
+            </form>
+        </li>
+     % end
 
-<h3>Dodaj vajo:</h3>
-<ul>
-  % for vaja in vaje:
-    <li> 
-            {{vaja.ime}}
-            <a href="dodaj/{{vaje.index(vaja)}}/" role="button">Dodaj</a>
-    </li>
-  % end
-</ul>
+  <form method="POST" action="dodaj/vecer/" role="button" class="secondary outline">
+      <select name="dodana_vaja">
+        <option value="" disabled selected>Izberi vajo</option>
+        % for vaja in vaje:
+            <option value="{{vaja.ime}},{{vaja.opis}}">{{vaja.ime}}</option>
+        % end
+      </select>
+      <select name="st_ponovitev">
+        <option value="" disabled selected>stevilo ponovitev</option>
+        % for stevilka in range(0,101):
+            <option value={{stevilka}}>{{stevilka}}</option>
+        % end
+      </select>
+      <input type="submit" value="Dodaj vajo">
+  </form>
 
-<form method="POST" action="izbrisi/">
-    <button>Izbrisi trening</button>
-</form>
+
+
