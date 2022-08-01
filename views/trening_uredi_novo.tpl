@@ -12,7 +12,7 @@
       </select>
       <select name="st_ponovitev">
         <option value="" disabled selected>stevilo ponovitev</option>
-        % for stevilka in range(0,101):
+        % for stevilka in range(1,101):
             <option value={{stevilka}}>{{stevilka}}</option>
         % end
       </select>
