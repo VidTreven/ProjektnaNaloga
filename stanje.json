@@ -4,6 +4,16 @@
             "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "12"
+                },
+                {
+                    "ime": "Trebusnjak",
+                    "opis": "Obicajni trebusnjak",
+                    "ponovitve": "22"
+                },
+                {
                     "ime": "kolo",
                     "opis": "s kolesom do vrha",
                     "ponovitve": "1"
@@ -71,6 +81,11 @@
                     "ime": "dede",
                     "opis": "hgvjfu",
                     "ponovitve": "45"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "10"
                 }
             ]
         },
@@ -174,7 +189,13 @@
         },
         {
             "ime": "deresem",
-            "vaje_ponovitev": []
+            "vaje_ponovitev": [
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca",
+                    "ponovitve": "10"
+                }
+            ]
         },
         {
             "ime": "malibio",
@@ -190,6 +211,20 @@
                     "ponovitve": "12"
                 }
             ]
+        },
+        {
+            "ime": "test z novo obliko",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Tek",
+                    "opis": "Pogovorni tempo",
+                    "ponovitve": "1"
+                }
+            ]
+        },
+        {
+            "ime": "test2",
+            "vaje_ponovitev": []
         }
     ],
     "vaje": [
@@ -224,6 +259,10 @@
         {
             "ime": "kolo",
             "opis": "s kolesom do vrha"
+        },
+        {
+            "ime": "dererereree",
+            "opis": "aaaaa"
         }
     ]
 }

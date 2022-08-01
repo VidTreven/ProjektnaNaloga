@@ -2,16 +2,13 @@
 
 <h2>{{trening.ime}}</h2>
 
-<form method="POST" action="izbrisi/">
-    <button>Izbrisi trening</button>
-</form>
 
 <ul>
   % for vaja in vaje_treninga:
     <li>
-        {{vaja.ime}}, {{vaja.ponovitve}} krat
-        <form method="POST" action="odstrani/{{vaje_treninga.index(vaja)}}/">
-            <button>odstrani</button>
+        <b>{{vaja.ime}}</b>, {{vaja.ponovitve}} krat
+        <form method="POST" action="odstrani/{{vaje_treninga.index(vaja)}}/" role="button">
+            Odstrani
         </form>
     </li>
   % end
@@ -26,3 +23,7 @@
     </li>
   % end
 </ul>
+
+<form method="POST" action="izbrisi/">
+    <button>Izbrisi trening</button>
+</form>

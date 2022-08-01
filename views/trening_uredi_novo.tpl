@@ -11,8 +11,8 @@
 <ul>
   % for vaja in vaje:
     <li> 
-        <form method="POST" action="dodaj/{{vaje.index(vaja)}}/">
-            {{vaja.ime}}, <input type="text" name="ponovitve" placeholder="st. ponovitev">
+        <form method="POST" action="dodaj/{{vaje.index(vaja)}}/" role="button" class="secondary outline">
+            <b>{{vaja.ime}}</b> <input type="text" name="ponovitve" placeholder="st. ponovitev">
             <button>dodaj</button>
         </form>
     </li>

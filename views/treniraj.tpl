@@ -1,9 +1,11 @@
 % rebase("osnova.tpl")
 
-<h2>{{trening.ime}}</h2>
+<h2>{{trening.ime.upper()}}</h2>
 
 
-<b>POZOR!</b> Pred vsakim treningom se je dobro ogreti, saj s tem zmanjsamo stevilo poskodb.
+<b>POZOR!</b> 
+<br />
+Pred vsakim treningom se je dobro ogreti, saj s tem zmanjsamo stevilo poskodb.
 
 % if st_vaj >= 2:
     <a href="0/" role="button">Start</a>

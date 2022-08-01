@@ -3,7 +3,7 @@
 <h2>{{trening.ime}}</h2>
 <ul>
   % for vaja in vaje_treninga:
-  <li>{{vaja.ime,}}, {{vaja.ponovitve}} krat</li>
+  <li><b>{{vaja.ime}}</b>, {{vaja.ponovitve}} krat</li>
   % end
 </ul>
 
