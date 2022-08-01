@@ -7,7 +7,10 @@
   % end
 </ul>
 
-<button><a href="">Zacni s treningom!</a></button>
+% if vaje_treninga != []:
+    <button><a href="treniraj/">Zacni s treningom!</a></button>
+% end
+
 % if vaje_treninga == []:
     <button><a href="uredi_novo/">Uredi trening.</a></button>
 %  else:

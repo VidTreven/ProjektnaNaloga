@@ -23,8 +23,9 @@ class Stanje:
         self.vaje.append(vaja)
         # return len(self.treningi) - 1
 
-    def izbrisi_vajo(self, vaja):
-        self.vaje.remove(vaja)
+    def izbrisi_vajo(self, id_vaje):
+        self.vaje.pop(id_vaje)
+        return Stanje
 
     def preveri_podatke_nove_vaje(self, nova_vaja):
         for vaja in self.vaje:

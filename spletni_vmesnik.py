@@ -57,6 +57,47 @@ def trening(indeks):
         vaje_treninga = trening.vaje_ponovitev,
         )
 
+@bottle.get("/trening/<id_treninga>/treniraj/")
+def trening(id_treninga):
+    trening = stanje.treningi[int(id_treninga)]
+
+    return bottle.template(
+        "treniraj.tpl",
+        trening = trening,
+        vaje_treninga = trening.vaje_ponovitev,
+        st_vaj = len(trening.vaje_ponovitev),
+        id_treninga = int(id_treninga)
+        )    
+
+@bottle.get("/trening/<id_treninga>/treniraj/<id_vaje>/")
+def trening(id_treninga, id_vaje):
+    trening = stanje.treningi[int(id_treninga)]
+    vaje_treninga = trening.vaje_ponovitev
+    vaja_trenutna = vaje_treninga[int(id_vaje)]
+    vaja_naslednja = vaje_treninga[int(id_vaje)+1]
+    return bottle.template(
+        "treniraj_vajo.tpl",
+        trening = trening,
+        vaja_trenutna = vaja_trenutna,
+        vaja_naslednja = vaja_naslednja,
+        id_treninga = int(id_treninga),
+        id_trenutne_vaje = int(id_vaje),
+        id_naslednje_vaje = int(id_vaje) + 1,
+        st_vaj = len(vaje_treninga),
+        )  
+
+@bottle.get("/trening/<id_treninga>/treniraj_zadnjo/")
+def trening_treniraj_zadnja_vaja(id_treninga):
+    trening = stanje.treningi[int(id_treninga)]
+    vaje_treninga = trening.vaje_ponovitev
+    vaja_trenutna = vaje_treninga[-1]   
+    return bottle.template(
+        "treniraj_zadnjo_vajo.tpl",
+        trening = trening,
+        vaja_trenutna = vaja_trenutna,
+        id_treninga = int(id_treninga),
+        )   
+
 @bottle.get("/trening/<id_treninga>/uredi/")
 def trening_uredi(id_treninga):
     trening = stanje.treningi[int(id_treninga)]
@@ -130,10 +171,10 @@ def vaje_indeks(indeks):
         vaja = stanje.vaje[int(indeks)],
         )
 
-@bottle.get("/vaje/<id_vaje>/izbrisi/")
+@bottle.get("/vaje/uredi/<id_vaje>/izbrisi/")
 def vaje_id(id_vaje):
-    vaja = stanje.vaje[int(id_vaje)]
-    stanje.izbrisi_vajo(vaja)
+    #vaja = stanje.vaje[int(id_vaje)]
+    stanje.izbrisi_vajo(int(id_vaje))
     stanje.shrani_v_datoteko(IME_DATOTEKE)
     bottle.redirect(url_vaje())
 
