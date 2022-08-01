@@ -1,4 +1,4 @@
-
+% rebase("osnova.tpl")
 
 <h2>{{trening.ime}}</h2>
 <ul>

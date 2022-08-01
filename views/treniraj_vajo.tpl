@@ -1,3 +1,5 @@
+% rebase("osnova.tpl")
+
 <h2>{{trening.ime}}</h2>
 <hr />
 Trenutno izvajas vajo: <b>{{vaja_trenutna.ime}} </b><br />

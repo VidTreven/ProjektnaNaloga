@@ -1,3 +1,5 @@
+% rebase("osnova.tpl")
+
 <h2>{{trening.ime}}</h2>
 
 <form method="POST" action="izbrisi/">

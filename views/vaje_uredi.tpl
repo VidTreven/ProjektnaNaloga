@@ -1,3 +1,5 @@
+% rebase("osnova.tpl")
+
 <h2>Vaje:</h2>
 <ul>
 % for vaja in vaje:
