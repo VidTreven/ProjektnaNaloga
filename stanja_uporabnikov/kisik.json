@@ -1,0 +1,24 @@
+{
+    "treningi": [
+        {
+            "ime": "Ares",
+            "vaje_ponovitev": [
+                {
+                    "ime": "hgfh",
+                    "opis": "rtghgth",
+                    "ponovitve": "17"
+                }
+            ]
+        }
+    ],
+    "vaje": [
+        {
+            "ime": "hgfh",
+            "opis": "rtghgth"
+        },
+        {
+            "ime": "rgeg",
+            "opis": "ertgreet"
+        }
+    ]
+}

@@ -21,8 +21,8 @@
       <input type="submit" value="Dodaj vajo">
     </form>
         <li>
-            <b>{{vaja_treninga.ime}}</b>, {{vaja_treninga.ponovitve}} krat
-            <form method="POST" action="odstrani/{{vaje_treninga.index(vaja_treninga)}}/" role="button">
+            <big><big><b>{{vaja_treninga.ime}}</b>, {{vaja_treninga.ponovitve}} krat </big></big>
+            <form method="POST" action="odstrani/{{vaje_treninga.index(vaja_treninga)}}/" role="button" class="secondary outline">
                 <button>Odstrani</button>
             </form>
         </li>
