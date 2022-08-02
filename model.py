@@ -10,8 +10,8 @@ class Stanje:
         self.treningi.append(trening)
         # return len(self.treningi) - 1
 
-    def pobrisi_trening(self, trening):
-        self.treningi.remove(trening)
+    def pobrisi_trening(self, id_treninga):
+        self.treningi.pop(id_treninga)
 
     def preveri_podatke_novega_trenigna(self, nov_trening):
         for trening in self.treningi:
@@ -25,7 +25,7 @@ class Stanje:
 
     def izbrisi_vajo(self, id_vaje):
         self.vaje.pop(id_vaje)
-        return Stanje
+        # return Stanje
 
     def preveri_podatke_nove_vaje(self, nova_vaja):
         for vaja in self.vaje:
@@ -79,8 +79,8 @@ class Trening:
     def vrini_vajo_ponovitev(self, naslednik, vaja_ponovitev,):
         self.vaje_ponovitev.insert(naslednik, vaja_ponovitev)
 
-    def odstrani_vajo_ponovitev(self, vaja_ponovitev):
-        self.vaje_ponovitev.remove(vaja_ponovitev)
+    def odstrani_vajo_ponovitev(self, id_vaja_ponovitev):
+        self.vaje_ponovitev.pop(id_vaja_ponovitev)
 
     def v_slovar(self):
         return {

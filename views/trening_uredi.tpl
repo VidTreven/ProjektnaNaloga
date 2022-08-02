@@ -23,7 +23,7 @@
         <li>
             <b>{{vaja_treninga.ime}}</b>, {{vaja_treninga.ponovitve}} krat
             <form method="POST" action="odstrani/{{vaje_treninga.index(vaja_treninga)}}/" role="button">
-                Odstrani
+                <button>Odstrani</button>
             </form>
         </li>
      % end
@@ -44,5 +44,7 @@
       <input type="submit" value="Dodaj vajo">
   </form>
 
-
+<form method="POST" action="izbrisi/">
+    <button>Izbrisi trening</button>
+</form>
 

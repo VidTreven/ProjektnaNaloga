@@ -5,8 +5,8 @@
 % for vaja in vaje:
     <li>
         <a href="/vaje/{{vaje.index(vaja)}}/">{{vaja.ime}}</a>
-        <form method="POST" action="{{vaje.index(vaja)}}/izbrisi/" role="button">
-            Izbrisi
+        <form method="POST" action="{{vaje.index(vaja)}}/izbrisi/">
+            <input type="submit" value="Izbrisi">
         </form>
     </li>
 % end
@@ -18,4 +18,6 @@
         </form>
     </li>
 </ul>
+
+
 

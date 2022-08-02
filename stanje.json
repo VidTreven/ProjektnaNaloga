@@ -4,6 +4,11 @@
             "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
+                    "ime": "kolo",
+                    "opis": "s kolesom do vrha",
+                    "ponovitve": "1"
+                },
+                {
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "0"
@@ -181,26 +186,6 @@
             ]
         },
         {
-            "ime": "jhgjhfi",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "12"
-                },
-                {
-                    "ime": "Tek",
-                    "opis": "Pogovorni tempo",
-                    "ponovitve": "4"
-                },
-                {
-                    "ime": "Trebusnjak",
-                    "opis": "Obicajni trebusnjak",
-                    "ponovitve": "5"
-                }
-            ]
-        },
-        {
             "ime": "hari kiri",
             "vaje_ponovitev": [
                 {
@@ -214,93 +199,14 @@
             "ime": "huraa",
             "vaje_ponovitev": [
                 {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "12"
-                }
-            ]
-        },
-        {
-            "ime": "huraa",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "1"
-                }
-            ]
-        },
-        {
-            "ime": "hulahup",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "45"
-                }
-            ]
-        },
-        {
-            "ime": "koko",
-            "vaje_ponovitev": [
-                {
                     "ime": "Vojaski poskok",
                     "opis": "Socasno skacemo in ploskamo",
-                    "ponovitve": "2"
+                    "ponovitve": "8"
                 },
                 {
                     "ime": "Skleca",
                     "opis": "Obicajna skleca",
                     "ponovitve": "12"
-                }
-            ]
-        },
-        {
-            "ime": "koko",
-            "vaje_ponovitev": []
-        },
-        {
-            "ime": "deresem",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "10"
-                }
-            ]
-        },
-        {
-            "ime": "malibio",
-            "vaje_ponovitev": [
-                {
-                    "ime": "trek",
-                    "opis": "freth",
-                    "ponovitve": "10"
-                },
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "12"
-                }
-            ]
-        },
-        {
-            "ime": "test z novo obliko",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Tek",
-                    "opis": "Pogovorni tempo",
-                    "ponovitve": "1"
-                }
-            ]
-        },
-        {
-            "ime": "test2",
-            "vaje_ponovitev": [
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "10"
                 }
             ]
         }
@@ -323,28 +229,20 @@
             "opis": "Obicajni trebusnjak"
         },
         {
-            "ime": "trek",
-            "opis": "freth"
-        },
-        {
             "ime": "dede",
             "opis": "hgvjfu"
-        },
-        {
-            "ime": "gregrger",
-            "opis": "errrere"
         },
         {
             "ime": "kolo",
             "opis": "s kolesom do vrha"
         },
         {
-            "ime": "dererereree",
-            "opis": "aaaaa"
-        },
-        {
             "ime": "vinci",
             "opis": "mens sana in corpore sano"
+        },
+        {
+            "ime": "poskok",
+            "opis": "skocimo v zrak"
         }
     ]
 }

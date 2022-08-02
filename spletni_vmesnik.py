@@ -22,8 +22,8 @@ def url_treninga_uredi(id_treninga):
 def url_treninga_uredi_novo(id_treninga):
     return f"/trening/{id_treninga}/uredi_novo/"
 
-def url_vaje():
-    return f"/vaje/"
+def url_vaje_uredi():
+    return f"/vaje/uredi/"
 
 def url_zacetna_stran():
     return f"/"
@@ -111,19 +111,26 @@ def trening_uredi(id_treninga):
         vaje = stanje.vaje
         )
 
-@bottle.get("/trening/<id_treninga>/uredi/izbrisi/")
+@bottle.post("/trening/<id_treninga>/uredi/izbrisi/")
 def trening_izbrisi(id_treninga):
-    trening = stanje.treningi[int(id_treninga)]
-    stanje.pobrisi_trening(trening)
+    #trening = stanje.treningi[int(id_treninga)]
+    stanje.pobrisi_trening(int(id_treninga))
     stanje.shrani_v_datoteko(IME_DATOTEKE)
-    bottle.redirect(url_zacetna_stran)
+    bottle.redirect(url_zacetna_stran())
+
+@bottle.post("/trening/<id_treninga>/uredi_novo/izbrisi/")
+def trening_izbrisi(id_treninga):
+    #trening = stanje.treningi[int(id_treninga)]
+    stanje.pobrisi_trening(int(id_treninga))
+    stanje.shrani_v_datoteko(IME_DATOTEKE)
+    bottle.redirect(url_zacetna_stran())
     
 
 @bottle.post("/trening/<id_treninga>/uredi/odstrani/<id_vaje>/")
 def trening_uredi_odstrani(id_treninga, id_vaje):
     trening = stanje.treningi[int(id_treninga)]
-    vaja = trening.vaje_ponovitev[int(id_vaje)]
-    trening.odstrani_vajo_ponovitev(vaja)
+    #vaja = trening.vaje_ponovitev[int(id_vaje)]
+    trening.odstrani_vajo_ponovitev(int(id_vaje))
     bottle.redirect(url_treninga_uredi(id_treninga))
 
 @bottle.get("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/")
@@ -172,7 +179,7 @@ def vaje_dodaj():
     vaja = Vaja(ime, opis)
     stanje.ustvari_vajo(vaja)
     stanje.shrani_v_datoteko(IME_DATOTEKE)
-    bottle.redirect(url_vaje())
+    bottle.redirect(url_vaje_uredi())
 
 @bottle.post("/trening/dodaj/")
 def trening_dodaj():
@@ -191,12 +198,12 @@ def vaje_indeks(indeks):
         vaja = stanje.vaje[int(indeks)],
         )
 
-@bottle.get("/vaje/uredi/<id_vaje>/izbrisi/")
+@bottle.post("/vaje/uredi/<id_vaje>/izbrisi/")
 def vaje_id(id_vaje):
     #vaja = stanje.vaje[int(id_vaje)]
     stanje.izbrisi_vajo(int(id_vaje))
     stanje.shrani_v_datoteko(IME_DATOTEKE)
-    bottle.redirect(url_vaje())
+    bottle.redirect(url_vaje_uredi())
 
 @bottle.get("/nov_trening/")
 def nov_trening():
