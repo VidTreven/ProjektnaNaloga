@@ -4,6 +4,11 @@
             "ime": "Vecerni Herkul",
             "vaje_ponovitev": [
                 {
+                    "ime": "poskok",
+                    "opis": "skocimo v zrak",
+                    "ponovitve": "10"
+                },
+                {
                     "ime": "kolo",
                     "opis": "s kolesom do vrha",
                     "ponovitve": "1"
@@ -227,10 +232,6 @@
         {
             "ime": "Trebusnjak",
             "opis": "Obicajni trebusnjak"
-        },
-        {
-            "ime": "dede",
-            "opis": "hgvjfu"
         },
         {
             "ime": "kolo",

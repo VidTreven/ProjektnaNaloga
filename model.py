@@ -13,10 +13,10 @@ class Stanje:
     def pobrisi_trening(self, id_treninga):
         self.treningi.pop(id_treninga)
 
-    def preveri_podatke_novega_trenigna(self, nov_trening):
+    def preveri_podatke_novega_treninga(self, nov_trening):
         for trening in self.treningi:
             if trening.ime == nov_trening.ime:
-                return {"ime": "Trening s tem imenom že obstaja"}
+                return True
 
     
     def ustvari_vajo(self, vaja):
@@ -30,7 +30,7 @@ class Stanje:
     def preveri_podatke_nove_vaje(self, nova_vaja):
         for vaja in self.vaje:
             if vaja.ime == nova_vaja.ime:
-                return {"ime": "Vaja s tem imenom že obstaja"}
+                return True
 
 
 

@@ -177,19 +177,31 @@ def vaje_dodaj():
     ime = bottle.request.forms["ime"]
     opis = bottle.request.forms["opis"]
     vaja = Vaja(ime, opis)
-    stanje.ustvari_vajo(vaja)
-    stanje.shrani_v_datoteko(IME_DATOTEKE)
-    bottle.redirect(url_vaje_uredi())
+    napake = stanje.preveri_podatke_nove_vaje(vaja)
+    if napake:
+        return bottle.template("vaje_uredi_z_napako.tpl",
+                                ime = ime,
+                                vaje = stanje.vaje,
+                                )
+    else:
+        stanje.ustvari_vajo(vaja)
+        stanje.shrani_v_datoteko(IME_DATOTEKE)
+        bottle.redirect(url_vaje_uredi())
 
 @bottle.post("/trening/dodaj/")
 def trening_dodaj():
     ime = bottle.request.forms["ime_treninga"]
     trening = Trening(ime, [])
-    stanje.ustvari_trening(trening)
-    stanje.shrani_v_datoteko(IME_DATOTEKE)
-    treningi = stanje.treningi
-    id_treninga = treningi.index(trening)
-    bottle.redirect(url_treninga_uredi_novo(id_treninga))
+    napake = stanje.preveri_podatke_novega_treninga(trening)
+    if napake:
+        return bottle.template("nov_trening_z_napako.tpl", ime = ime)
+    else:
+        stanje.ustvari_trening(trening)
+        stanje.shrani_v_datoteko(IME_DATOTEKE)
+        treningi = stanje.treningi
+        id_treninga = treningi.index(trening)
+        bottle.redirect(url_treninga_uredi_novo(id_treninga))
+    
 
 @bottle.get("/vaje/<indeks>/")
 def vaje_indeks(indeks):
