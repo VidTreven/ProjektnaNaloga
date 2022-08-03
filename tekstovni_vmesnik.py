@@ -58,7 +58,22 @@ def ustvari_trening():
         print("Vnesite podatke novega treninga.")
         ime = input("Ime> ")
         nov_trening = Trening(ime, [])
+        if stanje.preveri_podatke_novega_treninga(nov_trening):
+            ustvari_trening_obstojec()
+        else:
+            stanje.ustvari_trening(nov_trening)
+            print("Trening uspesno ustvarjen.")
+            dokoncaj_trening(nov_trening)
+
+def ustvari_trening_obstojec():
+    print("Trening s tem imenom ze obstaja.")
+    ime = input("Ime> ")
+    nov_trening = Trening(ime, [])
+    if stanje.preveri_podatke_novega_treninga(nov_trening):
+        ustvari_trening_obstojec()
+    else:
         stanje.ustvari_trening(nov_trening)
+        print("Trening uspesno ustvarjen.")
         dokoncaj_trening(nov_trening)
 
 def dokoncaj_trening(trening):
@@ -69,7 +84,22 @@ def ustvari_vajo():
     ime = input("Ime> ")
     opis = input("Opis> ")
     nova_vaja = Vaja(ime, opis)
-    stanje.ustvari_vajo(nova_vaja)
+    if stanje.preveri_podatke_nove_vaje(nova_vaja):
+        ustvari_vajo_obstojeco()
+    else:
+        stanje.ustvari_vajo(nova_vaja)
+        print("Vaja uspesno ustvarjena.")
+
+def ustvari_vajo_obstojeco():
+    print("Vaja s tem imenom ze obstaja.")
+    ime = input("Ime> ")
+    opis = input("Opis> ")
+    nova_vaja = Vaja(ime, opis)
+    if stanje.preveri_podatke_nove_vaje(nova_vaja):
+        ustvari_vajo_obstojeco()
+    else:
+        stanje.ustvari_vajo(nova_vaja)
+        print("Vaja uspesno ustvarjena.")
 
 def izbrisi_vajo(vaja):
     vaje = stanje.vaje
