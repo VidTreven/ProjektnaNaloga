@@ -1,14 +1,13 @@
 import json
 
-
 class Stanje:
     def __init__(self, treningi, vaje):
         self.treningi = treningi
         self.vaje = vaje
 
+
     def ustvari_trening(self, trening):
         self.treningi.append(trening)
-        # return len(self.treningi) - 1
 
     def pobrisi_trening(self, id_treninga):
         self.treningi.pop(id_treninga)
@@ -21,19 +20,14 @@ class Stanje:
     
     def ustvari_vajo(self, vaja):
         self.vaje.append(vaja)
-        # return len(self.treningi) - 1
 
     def izbrisi_vajo(self, id_vaje):
         self.vaje.pop(id_vaje)
-        # return Stanje
 
     def preveri_podatke_nove_vaje(self, nova_vaja):
         for vaja in self.vaje:
             if vaja.ime == nova_vaja.ime:
                 return True
-
-
-
 
 
     def v_slovar(self):
@@ -56,6 +50,7 @@ class Stanje:
         )
         return stanje
 
+
     def shrani_v_datoteko(self, ime_datoteke):
         with open(ime_datoteke, "w") as dat:
             slovar = self.v_slovar()
@@ -73,6 +68,7 @@ class Trening:
         self.ime = ime
         self.vaje_ponovitev = vaje_ponovitev
 
+
     def dodaj_vajo_ponovitev(self, vaja_ponovitev):
         self.vaje_ponovitev.append(vaja_ponovitev)
 
@@ -81,6 +77,7 @@ class Trening:
 
     def odstrani_vajo_ponovitev(self, id_vaja_ponovitev):
         self.vaje_ponovitev.pop(id_vaja_ponovitev)
+
 
     def v_slovar(self):
         return {
@@ -101,6 +98,7 @@ class Vaja_ponovitev:
         self.ime = ime
         self.opis = opis
         self.ponovitve = ponovitve
+
         
     def v_slovar(self):
         return {
@@ -121,6 +119,7 @@ class Vaja:
     def __init__(self, ime, opis):
         self.ime = ime
         self.opis = opis
+
 
     def v_slovar(self):
         return {

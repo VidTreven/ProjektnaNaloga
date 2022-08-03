@@ -13,8 +13,8 @@
     % end
         <li> 
             <form method="POST" action="/vaje/dodaj/">
-                <input type="text" name="ime" placeholder="vaja '{{ime}}' ze obstaja">
-                <input type="text" name="opis" placeholder="opis vaje">
+                <input type="text" name="ime" placeholder="Vaja '{{ime}}' ze obstaja">
+                <input type="text" name="opis" placeholder="Opis vaje">
                 <button>dodaj</button>
             </form>
         </li>

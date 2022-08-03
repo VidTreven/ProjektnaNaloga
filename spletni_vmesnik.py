@@ -1,7 +1,7 @@
 import bottle
-from model import Stanje, Vaja_ponovitev, Vaja, Trening
+from model import Stanje, Trening, Vaja_ponovitev, Vaja
 
-stanje_obj = Stanje([],[])
+# Poskrbim za ustrezno shranjevanje posameznega uporabnika
 
 SIFRIRNI_KLJUC = "To je poseben šifrirni ključ"
 
@@ -14,7 +14,7 @@ def stanje_trenutnega_uporabnika():
         bottle.redirect("/prijava/")
     ime_datoteke = ime_uporabnikove_datoteke(uporabnisko_ime)
     try:
-        stanje = stanje_obj.preberi_iz_datoteke(ime_datoteke)
+        stanje = Stanje([],[]).preberi_iz_datoteke(ime_datoteke)
     except FileNotFoundError:
         stanje = Stanje(treningi=[], vaje=[])
         stanje.shrani_v_datoteko(ime_datoteke)
@@ -24,6 +24,8 @@ def shrani_stanje_trenutnega_uporabnika(stanje):
     uporabnisko_ime = bottle.request.get_cookie("uporabnisko_ime", secret=SIFRIRNI_KLJUC)
     ime_datoteke = ime_uporabnikove_datoteke(uporabnisko_ime)
     stanje.shrani_v_datoteko(ime_datoteke)
+
+# Prijava in odjava
 
 @bottle.get("/prijava/")
 def prijava_get():
@@ -46,6 +48,8 @@ def odjava_post():
     bottle.response.delete_cookie("uporabnisko_ime", path="/")
     bottle.redirect("/")
 
+# Zacetna stran in url-ji za preusmeritve
+
 @bottle.get("/")
 def zacetna_stran():
     stanje = stanje_trenutnega_uporabnika()
@@ -67,35 +71,62 @@ def url_vaje_uredi():
 def url_zacetna_stran():
     return f"/"
 
-@bottle.get("/trening/<id_treninga>/uredi_novo/")
-def trening_uredi(id_treninga):
+# Vaje
+
+@bottle.get("/vaje/")
+def vaje():
     stanje = stanje_trenutnega_uporabnika()
-    trening = stanje.treningi[int(id_treninga)]
     return bottle.template(
-        "trening_uredi_novo.tpl",
-        trening = trening,
-        vaje_treninga = trening.vaje_ponovitev,
-        vaje = stanje.vaje
+        "vaje.tpl",
+        vaje = stanje.vaje,
         )
 
-@bottle.post("/trening/<id_treninga>/uredi_novo/dodaj/vecer/")
-def trening_uredi_dodaj_prvo(id_treninga):
+@bottle.get("/vaje/<id_vaje>/")
+def vaja(id_vaje):
+    stanje = stanje_trenutnega_uporabnika()
+    return bottle.template(
+        "vaja.tpl",
+        vaja = stanje.vaje[int(id_vaje)],
+        )
+
+@bottle.get("/vaje/uredi/")
+def vaje_uredi():
+    stanje = stanje_trenutnega_uporabnika()
+    return bottle.template(
+        "vaje_uredi.tpl",
+        vaje = stanje.vaje,
+        )
+
+@bottle.post("/vaje/dodaj/")
+def vaje_dodaj():
+    stanje = stanje_trenutnega_uporabnika()
+    ime = bottle.request.forms["ime"]
+    opis = bottle.request.forms["opis"]
+    vaja = Vaja(ime, opis)
+    napake = stanje.preveri_podatke_nove_vaje(vaja)
+    if napake:
+        return bottle.template("vaje_uredi_z_napako.tpl",
+            ime = ime,
+            vaje = stanje.vaje,
+            )
+    else:
+        stanje.ustvari_vajo(vaja)
+        shrani_stanje_trenutnega_uporabnika(stanje)
+        bottle.redirect(url_vaje_uredi())
+
+@bottle.post("/vaje/uredi/<id_vaje>/izbrisi/")
+def vaja_izbrisi(id_vaje):
+    stanje = stanje_trenutnega_uporabnika()
+    stanje.izbrisi_vajo(int(id_vaje))
+    shrani_stanje_trenutnega_uporabnika(stanje)
+    bottle.redirect(url_vaje_uredi())
+
+# Treningi
+
+@bottle.get("/trening/<id_treninga>/")
+def trening(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
-    vaja = bottle.request.forms["dodana_vaja"]
-    ime_in_opis = vaja.split(',')
-    ime = ime_in_opis[0]
-    opis = ime_in_opis[1]
-    ponovitve = bottle.request.forms["st_ponovitev"]
-    vaja_ponovitev = Vaja_ponovitev(ime, opis, ponovitve)
-    trening.dodaj_vajo_ponovitev( vaja_ponovitev)
-    shrani_stanje_trenutnega_uporabnika(stanje)
-    bottle.redirect(url_treninga_uredi(id_treninga))
-
-@bottle.get("/trening/<indeks>/")
-def trening(indeks):
-    stanje = stanje_trenutnega_uporabnika()
-    trening = stanje.treningi[int(indeks)]
     return bottle.template(
         "trening.tpl",
         trening = trening,
@@ -103,7 +134,7 @@ def trening(indeks):
         )
 
 @bottle.get("/trening/<id_treninga>/treniraj/")
-def trening(id_treninga):
+def treniraj_trening(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
     return bottle.template(
@@ -112,10 +143,10 @@ def trening(id_treninga):
         vaje_treninga = trening.vaje_ponovitev,
         st_vaj = len(trening.vaje_ponovitev),
         id_treninga = int(id_treninga)
-        )    
+        )
 
 @bottle.get("/trening/<id_treninga>/treniraj/<id_vaje>/")
-def trening(id_treninga, id_vaje):
+def treniraj_trening_vajo(id_treninga, id_vaje):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
     vaje_treninga = trening.vaje_ponovitev
@@ -127,13 +158,12 @@ def trening(id_treninga, id_vaje):
         vaja_trenutna = vaja_trenutna,
         vaja_naslednja = vaja_naslednja,
         id_treninga = int(id_treninga),
-        id_trenutne_vaje = int(id_vaje),
         id_naslednje_vaje = int(id_vaje) + 1,
         st_vaj = len(vaje_treninga),
-        )  
+        ) 
 
 @bottle.get("/trening/<id_treninga>/treniraj_zadnjo/")
-def trening_treniraj_zadnja_vaja(id_treninga):
+def treniraj_trening_zadnjo_vajo(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
     vaje_treninga = trening.vaje_ponovitev
@@ -143,7 +173,7 @@ def trening_treniraj_zadnja_vaja(id_treninga):
         trening = trening,
         vaja_trenutna = vaja_trenutna,
         id_treninga = int(id_treninga),
-        )   
+        ) 
 
 @bottle.get("/trening/<id_treninga>/uredi/")
 def trening_uredi(id_treninga):
@@ -159,44 +189,20 @@ def trening_uredi(id_treninga):
 @bottle.post("/trening/<id_treninga>/uredi/izbrisi/")
 def trening_izbrisi(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
-    #trening = stanje.treningi[int(id_treninga)]
     stanje.pobrisi_trening(int(id_treninga))
     shrani_stanje_trenutnega_uporabnika(stanje)
     bottle.redirect(url_zacetna_stran())
-
-@bottle.post("/trening/<id_treninga>/uredi_novo/izbrisi/")
-def trening_izbrisi(id_treninga):
-    stanje = stanje_trenutnega_uporabnika()
-    #trening = stanje.treningi[int(id_treninga)]
-    stanje.pobrisi_trening(int(id_treninga))
-    shrani_stanje_trenutnega_uporabnika(stanje)
-    bottle.redirect(url_zacetna_stran())
-    
 
 @bottle.post("/trening/<id_treninga>/uredi/odstrani/<id_vaje>/")
-def trening_uredi_odstrani(id_treninga, id_vaje):
+def trening_uredi_odstrani_vajo(id_treninga, id_vaje):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
-    #vaja = trening.vaje_ponovitev[int(id_vaje)]
     trening.odstrani_vajo_ponovitev(int(id_vaje))
     shrani_stanje_trenutnega_uporabnika(stanje)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
-@bottle.get("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/")
-def trening_uredi_dodaj(id_treninga, id_vaje):
-    stanje = stanje_trenutnega_uporabnika()
-    trening = stanje.treningi[int(id_treninga)]
-    nasa_vaja = stanje.vaje[int(id_vaje)]
-    return bottle.template(
-        "trening_uredi_dodaj.tpl",
-        trening = trening,
-        vaje_treninga = trening.vaje_ponovitev,
-        nasa_vaja = nasa_vaja,
-        ime_nase_vaje = nasa_vaja.ime,
-        )
-
-@bottle.post("/trening/<id_treninga>/uredi/dodaj/vecer/<id_naslednje_vaje>/prosim/")
-def trening_uredi_dodaj_pred(id_treninga, id_naslednje_vaje):
+@bottle.post("/trening/<id_treninga>/uredi/vrini/<id_naslednje_vaje>/")
+def trening_uredi_vrini_vajo_pred(id_treninga, id_naslednje_vaje):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
     vaja = bottle.request.forms["dodana_vaja"]
@@ -209,8 +215,8 @@ def trening_uredi_dodaj_pred(id_treninga, id_naslednje_vaje):
     shrani_stanje_trenutnega_uporabnika(stanje)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
-@bottle.post("/trening/<id_treninga>/uredi/dodaj/vecer/")
-def trening_uredi_dodaj_pred(id_treninga):
+@bottle.post("/trening/<id_treninga>/uredi/dodaj/")
+def trening_uredi_dodaj_vajo(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
     trening = stanje.treningi[int(id_treninga)]
     vaja = bottle.request.forms["dodana_vaja"]
@@ -223,23 +229,42 @@ def trening_uredi_dodaj_pred(id_treninga):
     shrani_stanje_trenutnega_uporabnika(stanje)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
-
-@bottle.post("/vaje/dodaj/")
-def vaje_dodaj():
+@bottle.get("/trening/<id_treninga>/uredi_novo/")
+def trening_uredi_novo(id_treninga):
     stanje = stanje_trenutnega_uporabnika()
-    ime = bottle.request.forms["ime"]
-    opis = bottle.request.forms["opis"]
-    vaja = Vaja(ime, opis)
-    napake = stanje.preveri_podatke_nove_vaje(vaja)
-    if napake:
-        return bottle.template("vaje_uredi_z_napako.tpl",
-                                ime = ime,
-                                vaje = stanje.vaje,
-                                )
-    else:
-        stanje.ustvari_vajo(vaja)
-        shrani_stanje_trenutnega_uporabnika(stanje)
-        bottle.redirect(url_vaje_uredi())
+    trening = stanje.treningi[int(id_treninga)]
+    return bottle.template(
+        "trening_uredi_novo.tpl",
+        trening = trening,
+        vaje = stanje.vaje
+        )
+
+@bottle.post("/trening/<id_treninga>/uredi_novo/izbrisi/")
+def trening_izbrisi_novo(id_treninga):
+    stanje = stanje_trenutnega_uporabnika()
+    stanje.pobrisi_trening(int(id_treninga))
+    shrani_stanje_trenutnega_uporabnika(stanje)
+    bottle.redirect(url_zacetna_stran())
+
+@bottle.post("/trening/<id_treninga>/uredi_novo/dodaj_novo/")
+def trening_uredi_dodaj_novo(id_treninga):
+    stanje = stanje_trenutnega_uporabnika()
+    trening = stanje.treningi[int(id_treninga)]
+    vaja = bottle.request.forms["dodana_vaja"]
+    ime_in_opis = vaja.split(',')
+    ime = ime_in_opis[0]
+    opis = ime_in_opis[1]
+    ponovitve = bottle.request.forms["st_ponovitev"]
+    vaja_ponovitev = Vaja_ponovitev(ime, opis, ponovitve)
+    trening.dodaj_vajo_ponovitev( vaja_ponovitev)
+    shrani_stanje_trenutnega_uporabnika(stanje)
+    bottle.redirect(url_treninga_uredi(id_treninga))    
+
+@bottle.get("/nov_trening/")
+def nov_trening():
+    return bottle.template(
+        "nov_trening.tpl",
+        )
 
 @bottle.post("/trening/dodaj/")
 def trening_dodaj():
@@ -248,55 +273,15 @@ def trening_dodaj():
     trening = Trening(ime, [])
     napake = stanje.preveri_podatke_novega_treninga(trening)
     if napake:
-        return bottle.template("nov_trening_z_napako.tpl", ime = ime)
+        return bottle.template("nov_trening_z_napako.tpl",
+            ime = ime)
     else:
         stanje.ustvari_trening(trening)
         shrani_stanje_trenutnega_uporabnika(stanje)
         treningi = stanje.treningi
         id_treninga = treningi.index(trening)
         bottle.redirect(url_treninga_uredi_novo(id_treninga))
-    
 
-@bottle.get("/vaje/<indeks>/")
-def vaje_indeks(indeks):
-    stanje = stanje_trenutnega_uporabnika()
-    return bottle.template(
-        "vaja.tpl",
-        vaja = stanje.vaje[int(indeks)],
-        )
-
-@bottle.post("/vaje/uredi/<id_vaje>/izbrisi/")
-def vaje_id(id_vaje):
-    stanje = stanje_trenutnega_uporabnika()
-    #vaja = stanje.vaje[int(id_vaje)]
-    stanje.izbrisi_vajo(int(id_vaje))
-    shrani_stanje_trenutnega_uporabnika(stanje)
-    bottle.redirect(url_vaje_uredi())
-
-@bottle.get("/nov_trening/")
-def nov_trening():
-    stanje = stanje_trenutnega_uporabnika()
-    return bottle.template(
-        "nov_trening.tpl",
-        vaje = stanje.vaje,
-        )
-
-@bottle.get("/vaje/")
-def vaje():
-    stanje = stanje_trenutnega_uporabnika()
-    return bottle.template(
-        "vaje.tpl",
-        vaje = stanje.vaje,
-        )
-
-@bottle.get("/vaje/uredi/")
-def vaje_uredi():
-    stanje = stanje_trenutnega_uporabnika()
-    return bottle.template(
-        "vaje_uredi.tpl",
-        vaje = stanje.vaje,
-        )
-
-
+# Pogon
 
 bottle.run(debug=True, reloader=True)

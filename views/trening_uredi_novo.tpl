@@ -2,7 +2,7 @@
 
 <h2>{{trening.ime}}</h2>
 
-<form method="POST" action="dodaj/vecer/" role="button" class="secondary outline">
+<form method="POST" action="dodaj_novo/" role="button" class="secondary outline">
 
     <select name="dodana_vaja" required>
       <option value="" disabled selected>Izberi vajo</option>

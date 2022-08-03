@@ -5,7 +5,7 @@
 <ul>
   % for vaja_treninga in vaje_treninga:
 
-    <form method="POST" action="dodaj/vecer/{{vaje_treninga.index(vaja_treninga)}}/prosim/" role="button" class="secondary outline">
+    <form method="POST" action="vrini/{{vaje_treninga.index(vaja_treninga)}}/" role="button" class="secondary outline">
 
         <select name="dodana_vaja" required>
           <option value="" disabled selected>Izberi vajo</option>
@@ -33,7 +33,7 @@
         </li>
   % end
 
-    <form method="POST" action="dodaj/vecer/" role="button" class="secondary outline">
+    <form method="POST" action="dodaj/" role="button" class="secondary outline">
 
         <select name="dodana_vaja" required>
           <option value="" disabled selected>Izberi vajo</option>
