@@ -1,7 +1,7 @@
 import bottle
 from model import Stanje, Trening, Vaja_ponovitev, Vaja
 
-# Poskrbim za ustrezno shranjevanje posameznega uporabnika
+# Poskrbim za ustrezno branje in shranjevanje podatkov posameznega uporabnika
 
 SIFRIRNI_KLJUC = "To je poseben šifrirni ključ"
 
