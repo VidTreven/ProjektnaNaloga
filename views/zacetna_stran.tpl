@@ -17,12 +17,10 @@
 
         <h4>Tvoji treningi:</h4>
         <ul>
-        % for trening in treningi:
-            <li><a href="trening/{{treningi.index(trening)}}/">{{trening.ime}}</a></li>
-        % end
+            % for trening in treningi:
+                <li><a href="trening/{{treningi.index(trening)}}/">{{trening.ime}}</a></li>
+            % end
         </ul>
-
-        
 
         <a href="nov_trening/" role="button">Dodaj trening</a>
 

@@ -1,4 +1,5 @@
 % rebase("osnova.tpl")
 
-<h2>Ime vaje: {{vaja.ime}}</h2>
+<big><big><b>Ime vaje: {{vaja.ime.upper()}}</big></big></b>
+<hr />
 <b>Opis vaje:</b> {{vaja.opis}}

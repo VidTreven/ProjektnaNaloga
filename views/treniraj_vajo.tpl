@@ -1,9 +1,12 @@
 % rebase("osnova.tpl")
 
 <h2>{{trening.ime.upper()}}</h2>
+
 <hr />
+
 Trenutno izvajaš vajo: <b>{{vaja_trenutna.ime.upper()}} </b><br />
 Ponovitve: {{vaja_trenutna.ponovitve}}
+
 <hr />
 
 Naslednja vaja: {{vaja_naslednja.ime}}, {{vaja_naslednja.ponovitve}} krat

@@ -1,13 +1,17 @@
 % rebase("osnova.tpl")
 
 <h2>{{trening.ime}}</h2>
+
 <hr />
+
 <ul>
   % for vaja in vaje_treninga:
-  <li><b>{{vaja.ime}}</b>, {{vaja.ponovitve}} krat</li>
+    <li><b>{{vaja.ime}}</b>, {{vaja.ponovitve}} krat</li>
   % end
 </ul>
+
 <hr />
+
 % if vaje_treninga != []:
     <a href="treniraj/" role="button">Začni s treningom</a>
 % end
