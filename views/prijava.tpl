@@ -10,8 +10,8 @@
   </head>
   <body>
     <form method="POST" role="button" class="secondary outline">
-        <input type="text" name="uporabnisko_ime" placeholder="uporabnisko ime">
-        <input type="password" name="geslo" placeholder="geslo">
+        <input type="text" name="uporabnisko_ime" placeholder="Uporabniško ime">
+        <input type="password" name="geslo" placeholder="Geslo">
         <input type="submit" value="Prijavi se"">
     </form>
   </body>

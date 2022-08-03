@@ -10,7 +10,7 @@
   </head>
     <body>
         <h1>Pozdravljen, {{uporabnisko_ime}}!</h1>
-        <big><big><big>Dobrodosel v tvojem osebnem trening centru!</big></big></big>
+        <big><big><big>Dobrodošel v tvojem osebnem trening centru!</big></big></big>
         <a href="/prijava/" role="button">Odjavi se</a>
 
         <hr />

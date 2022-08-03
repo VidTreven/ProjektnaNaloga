@@ -13,7 +13,7 @@
         % end
       </select>
       <select name="st_ponovitev" required>
-        <option value="" disabled selected>stevilo ponovitev</option>
+        <option value="" disabled selected>Število ponovitev</option>
         % for stevilka in range(1,101):
             <option value={{stevilka}}>{{stevilka}}</option>
         % end
@@ -29,14 +29,14 @@
      % end
 
   <form method="POST" action="dodaj/vecer/" role="button" class="secondary outline">
-      <select name="dodana_vaja">
+      <select name="dodana_vaja" required>
         <option value="" disabled selected>Izberi vajo</option>
         % for vaja in vaje:
             <option value="{{vaja.ime}},{{vaja.opis}}">{{vaja.ime}}</option>
         % end
       </select>
-      <select name="st_ponovitev">
-        <option value="" disabled selected>stevilo ponovitev</option>
+      <select name="st_ponovitev" required>
+        <option value="" disabled selected>Število ponovitev</option>
         % for stevilka in range(1,101):
             <option value={{stevilka}}>{{stevilka}}</option>
         % end
@@ -45,6 +45,6 @@
   </form>
 
 <form method="POST" action="izbrisi/">
-    <button>Izbrisi trening</button>
+    <button>Izbriši trening</button>
 </form>
 

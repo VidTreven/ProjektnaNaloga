@@ -89,19 +89,9 @@
             "ime": "huhu",
             "vaje_ponovitev": [
                 {
-                    "ime": "trek",
-                    "opis": "freth",
-                    "ponovitve": "12"
-                },
-                {
                     "ime": "Skleca",
                     "opis": "Obicajna skleca",
                     "ponovitve": "10"
-                },
-                {
-                    "ime": "Skleca",
-                    "opis": "Obicajna skleca",
-                    "ponovitve": "45"
                 },
                 {
                     "ime": "Trebusnjak",
@@ -134,16 +124,6 @@
             "ime": "kiklop",
             "vaje_ponovitev": [
                 {
-                    "ime": "trek",
-                    "opis": "freth",
-                    "ponovitve": "43"
-                },
-                {
-                    "ime": "Vojaski poskok",
-                    "opis": "Socasno skacemo in ploskamo",
-                    "ponovitve": "0"
-                },
-                {
                     "ime": "Vojaski poskok",
                     "opis": "Socasno skacemo in ploskamo",
                     "ponovitve": "1"
@@ -157,11 +137,6 @@
                     "ime": "Tek",
                     "opis": "Pogovorni tempo",
                     "ponovitve": "4"
-                },
-                {
-                    "ime": "Tek",
-                    "opis": "Pogovorni tempo",
-                    "ponovitve": "56"
                 },
                 {
                     "ime": "Skleca",

@@ -179,6 +179,7 @@ def trening_uredi_odstrani(id_treninga, id_vaje):
     trening = stanje.treningi[int(id_treninga)]
     #vaja = trening.vaje_ponovitev[int(id_vaje)]
     trening.odstrani_vajo_ponovitev(int(id_vaje))
+    shrani_stanje_trenutnega_uporabnika(stanje)
     bottle.redirect(url_treninga_uredi(id_treninga))
 
 @bottle.get("/trening/<id_treninga>/uredi/dodaj/<id_vaje>/")

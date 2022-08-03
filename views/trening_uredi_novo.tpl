@@ -11,7 +11,7 @@
         % end
       </select>
       <select name="st_ponovitev" required>
-        <option value="" disabled selected>stevilo ponovitev</option>
+        <option value="" disabled selected>število ponovitev</option>
         % for stevilka in range(1,101):
             <option value={{stevilka}}>{{stevilka}}</option>
         % end
@@ -21,7 +21,7 @@
 
 
 <form method="POST" action="izbrisi/">
-    <button>Izbrisi trening</button>
+    <button>Izbriši trening</button>
 </form>
 
 

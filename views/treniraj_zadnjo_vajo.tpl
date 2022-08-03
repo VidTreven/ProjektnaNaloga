@@ -2,7 +2,7 @@
 
 <h2>{{trening.ime.upper()}}</h2>
 <hr />
-Trenutno izvajas vajo: <b>{{vaja_trenutna.ime.upper()}} </b><br />
+Trenutno izvajaš vajo: <b>{{vaja_trenutna.ime.upper()}} </b><br />
 Ponovitve: {{vaja_trenutna.ponovitve}}
 <hr />
 
@@ -11,4 +11,4 @@ Ponovitve: {{vaja_trenutna.ponovitve}}
 <hr />
 
 
-<a href="/trening/{{id_treninga}}/" role="button">koncaj s treningom</a>
+<a href="/trening/{{id_treninga}}/" role="button">Končaj s treningom</a>

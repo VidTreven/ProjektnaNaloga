@@ -9,7 +9,7 @@
 </ul>
 <hr />
 % if vaje_treninga != []:
-    <a href="treniraj/" role="button">Zacni s treningom!</a>
+    <a href="treniraj/" role="button">Začni s treningom</a>
 % end
 
 % if vaje_treninga == []:

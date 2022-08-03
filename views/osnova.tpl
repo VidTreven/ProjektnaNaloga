@@ -8,7 +8,7 @@
     <title>Super sportnik</title>
   </head>
   <body>
-    <a href="/" role="button" class="outline">Nazaj na zacetek</a>
+    <a href="/" role="button" class="outline">Nazaj na prvo stran</a>
     <section class="section">
       {{!base}}
     </section>
