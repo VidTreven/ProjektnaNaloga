@@ -5,6 +5,7 @@ class Stanje:
         self.treningi = treningi
         self.vaje = vaje
 
+    # Treningi
 
     def ustvari_trening(self, trening):
         self.treningi.append(trening)
@@ -17,6 +18,7 @@ class Stanje:
             if trening.ime == nov_trening.ime:
                 return True
 
+    # Vaje
     
     def ustvari_vajo(self, vaja):
         self.vaje.append(vaja)
@@ -29,6 +31,7 @@ class Stanje:
             if vaja.ime == nova_vaja.ime:
                 return True
 
+    # Shranjevanje in branje
 
     def v_slovar(self):
         return {
@@ -78,6 +81,7 @@ class Trening:
     def odstrani_vajo_ponovitev(self, id_vaja_ponovitev):
         self.vaje_ponovitev.pop(id_vaja_ponovitev)
 
+    # Shranjevanje in branje
 
     def v_slovar(self):
         return {
@@ -99,6 +103,7 @@ class Vaja_ponovitev:
         self.opis = opis
         self.ponovitve = ponovitve
 
+    # Shranjevanje in branje
         
     def v_slovar(self):
         return {
@@ -120,6 +125,7 @@ class Vaja:
         self.ime = ime
         self.opis = opis
 
+    # Shranjevanje in branje
 
     def v_slovar(self):
         return {

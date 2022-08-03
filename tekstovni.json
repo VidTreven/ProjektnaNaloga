@@ -1,0 +1,68 @@
+{
+    "treningi": [
+        {
+            "ime": "rtbtgb",
+            "vaje_ponovitev": [
+                {
+                    "ime": "deres",
+                    "opis": "njamalibio",
+                    "ponovitve": "32"
+                }
+            ]
+        },
+        {
+            "ime": "gfd",
+            "vaje_ponovitev": [
+                {
+                    "ime": "deres",
+                    "opis": "njamalibio",
+                    "ponovitve": "56"
+                },
+                {
+                    "ime": "poskok",
+                    "opis": "dfbgfbdr",
+                    "ponovitve": "32"
+                },
+                {
+                    "ime": "poskok",
+                    "opis": "dfbgfbdr",
+                    "ponovitve": 4
+                }
+            ]
+        },
+        {
+            "ime": "dgrgre",
+            "vaje_ponovitev": [
+                {
+                    "ime": "poskok",
+                    "opis": "dfbgfbdr",
+                    "ponovitve": "fr"
+                }
+            ]
+        },
+        {
+            "ime": "fdgbdf",
+            "vaje_ponovitev": [
+                {
+                    "ime": "poskok",
+                    "opis": "dfbgfbdr",
+                    "ponovitve": 5
+                }
+            ]
+        }
+    ],
+    "vaje": [
+        {
+            "ime": "skleca",
+            "opis": "obicna"
+        },
+        {
+            "ime": "poskok",
+            "opis": "dfbgfbdr"
+        },
+        {
+            "ime": "ecec",
+            "opis": "ecec"
+        }
+    ]
+}
