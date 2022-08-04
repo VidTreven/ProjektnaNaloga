@@ -8,6 +8,7 @@
     <title>Super sportnik</title>
   </head>
   <body>
+    <h1>Trening center</h1>
     <form method="POST" role="button" class="secondary outline">
         <input type="text" name="uporabnisko_ime" placeholder="Uporabniško ime">
         <input type="password" name="geslo" placeholder="Geslo">

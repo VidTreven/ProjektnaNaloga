@@ -1,0 +1,80 @@
+{
+    "treningi": [
+        {
+            "ime": "Vecerni Herkul",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Tek",
+                    "opis": "Tecemo v pogovornem tempu 10 min",
+                    "ponovitve": "1"
+                },
+                {
+                    "ime": "Dvig trupa",
+                    "opis": "Z obema rokama se primemo za precko in se dvignemo tako",
+                    "ponovitve": "10"
+                },
+                {
+                    "ime": "Poskok",
+                    "opis": "Skocimo v zrak",
+                    "ponovitve": "20"
+                },
+                {
+                    "ime": "Skleca",
+                    "opis": "Obicajna skleca (roke v sirini ramen",
+                    "ponovitve": "30"
+                },
+                {
+                    "ime": "Dvig trupa",
+                    "opis": "Z obema rokama se primemo za precko in se dvignemo tako",
+                    "ponovitve": "15"
+                }
+            ]
+        },
+        {
+            "ime": "Ares",
+            "vaje_ponovitev": [
+                {
+                    "ime": "Kolo",
+                    "opis": "Prekolesarimo 5 km.",
+                    "ponovitve": "1"
+                },
+                {
+                    "ime": "Trebusnjak",
+                    "opis": "Ulezemo se na hrbet",
+                    "ponovitve": "20"
+                },
+                {
+                    "ime": "Poskok",
+                    "opis": "Skocimo v zrak",
+                    "ponovitve": "10"
+                }
+            ]
+        }
+    ],
+    "vaje": [
+        {
+            "ime": "Skleca",
+            "opis": "Obicajna skleca (roke v sirini ramen, raven trup)."
+        },
+        {
+            "ime": "Tek",
+            "opis": "Tecemo v pogovornem tempu 10 min"
+        },
+        {
+            "ime": "Kolo",
+            "opis": "Prekolesarimo 5 km."
+        },
+        {
+            "ime": "Dvig trupa",
+            "opis": "Z obema rokama se primemo za precko in se dvignemo tako, da z brado pridemo cez precko."
+        },
+        {
+            "ime": "Poskok",
+            "opis": "Skocimo v zrak"
+        },
+        {
+            "ime": "Trebusnjak",
+            "opis": "Ulezemo se na hrbet, pokrcimo noge in dvignemo trup."
+        }
+    ]
+}
