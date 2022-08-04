@@ -1,6 +1,4 @@
-# Projektna naloga pri predmetu UVP
-
-# Osebni trening center
+#Osebni trening center
 
 ## O programu
 Program je namenjen pomoci pri organizaciji treningov. Posameznik se v program prijavi
